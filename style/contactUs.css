@@ -1,0 +1,276 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  border: 20px #bdc3de solid;
+}
+body header {
+  width: 100%;
+  height: 20vh;
+  display: grid;
+  grid-template-rows: 1fr 3fr 1fr;
+}
+body header .offer {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f4bccd;
+}
+body header .head {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+body header .head div {
+  width: 25%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  align-items: center;
+}
+body header .head div h1 {
+  font-weight: bolder;
+}
+body header .head div a {
+  text-decoration: none;
+  color: black;
+}
+body header nav {
+  width: 100%;
+  height: 100%;
+  background-color: #bdc3de;
+}
+body header nav ul {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  padding: 0;
+  margin: 0;
+}
+body header nav ul li {
+  list-style: none;
+}
+body header nav ul li a {
+  text-decoration: none;
+  color: black;
+}
+body footer {
+  background-color: #f3e0d1;
+  padding: 40px 20px;
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  color: #342822;
+  font-family: Arial, sans-serif;
+}
+body footer .links {
+  flex: 1 1 200px;
+  margin: 10px;
+  text-align: center;
+}
+body footer .links h1, body footer .links h3 {
+  font-family: "Georgia", serif;
+  margin-bottom: 15px;
+}
+body footer .links h1 {
+  font-size: 2rem;
+  color: #687ca0;
+}
+body footer .links h3 {
+  font-size: 1.2rem;
+  color: #868c70;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+body footer .links .spans {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+body footer .links .spans span {
+  font-size: 1rem;
+}
+body footer .links .spans span a {
+  text-decoration: none;
+  color: #5f799e;
+  transition: color 0.3s ease;
+}
+body footer .links .spans span a:hover {
+  color: #ffa063;
+}
+@media (max-width: 768px) {
+  body footer {
+    flex-direction: column;
+    align-items: center;
+  }
+  body .links {
+    text-align: left;
+  }
+}
+
+main {
+  width: 100%;
+  height: auto;
+  display: grid;
+  grid-template-rows: 1fr 2fr;
+  background-color: #f7f0eb;
+}
+@media (min-width: 1024px) {
+  main {
+    grid-template-rows: none;
+    grid-template-columns: 3fr 4fr;
+    direction: rtl;
+  }
+}
+main .formSection {
+  width: 100%;
+  height: 80vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+@media (min-width: 1024px) {
+  main .formSection {
+    height: 100vh;
+    align-items: center;
+  }
+}
+main .formSection form {
+  width: 80%;
+  height: 100%;
+  display: grid;
+  grid-template-rows: 1fr 4fr 1fr;
+  direction: ltr;
+  background-color: #f3d4cf;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+@media (min-width: 1024px) {
+  main .formSection form {
+    height: 80%;
+  }
+}
+main .formSection form .fonts {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+main .formSection form .fonts h1 {
+  font-size: 2rem;
+  color: #342923;
+}
+main .formSection form .fonts p {
+  font-size: 1rem;
+  color: #5f799e;
+}
+main .formSection form .inputs {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+}
+main .formSection form .inputs textarea {
+  height: 25%;
+}
+main .formSection form .inputs input,
+main .formSection form .inputs textarea {
+  width: 70%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 2px solid #e0e0e0;
+  font-size: 16px;
+  background-color: #f9f9f9;
+  border-radius: 4px;
+  transition: border-color 0.3s ease;
+}
+main .formSection form .inputs input:focus,
+main .formSection form .inputs textarea:focus {
+  border-color: #3498db;
+  outline: none;
+  background-color: #fff;
+}
+main .formSection form .buttons {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+main .formSection form .buttons button {
+  width: 70%;
+  height: 40%;
+  border-radius: 20px;
+  border: none;
+  background-color: #342923;
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+main .formSection form .buttons button:hover {
+  background-color: #5f799e;
+}
+main section {
+  width: 100%;
+  display: grid;
+  grid-template-rows: 3fr 1fr;
+}
+main section .section-one {
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+}
+main section .section-one h2 {
+  font-size: 1.8rem;
+  color: #342923;
+}
+main section .section-one p {
+  font-size: 1rem;
+  color: #5f799e;
+}
+main section .section-two {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+main section .section-two article {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  text-align: center;
+  align-items: center;
+  background-color: #f4bccd;
+  border-radius: 8px;
+  padding: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+main section .section-two article h3 {
+  color: #342923;
+}
+main section .section-two article p {
+  color: #5f799e;
+}/*# sourceMappingURL=contactUs.css.map */

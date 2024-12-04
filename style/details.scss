@@ -1,0 +1,171 @@
+@use './global_rules.scss' as *;
+main {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    background-color: #f7f0eb; // Off white background for the main area
+    padding: 20px; // Add padding around the main content
+
+    .section-one {
+        width: 100%;
+        height: 100vh; // Full height of the viewport
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center;
+
+        @media (min-width: 1024px) {
+            flex-direction: row; // Row layout on larger screens
+            align-items: flex-start; // Align to start
+        }
+
+        .photo {
+            width: 80%;
+            height: 40%;
+            margin-top: 5%; // Space at the top
+
+            @media (min-width: 1024px) {
+                height: 60%;
+                width: 40%; // Adjust width for larger screens
+                margin-left: 10px; // Space to the left
+            }
+
+            img {
+                width: 100%;
+                border-radius: 8px; // Rounded corners for the image
+                box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); // Soft shadow
+            }
+        }
+
+        article {
+            width: 80%;
+            height: 45%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-evenly;
+
+            @media (min-width: 1024px) {
+                height: 60%;
+                width: 40%; // Adjust width for larger screens
+                align-items: flex-start; // Align to start
+                margin-top: 5%; // Space at the top
+            }
+
+            .name {
+                font-size: 2rem; // Large font for product name
+                color: #342923; // Dark blue text color
+                margin-bottom: 10px; // Space below name
+            }
+
+            #priceDisplay {
+                font-size: 1.5rem; // Font size for price
+                color: #889174; // Neutral color from the palette
+                margin-bottom: 15px; // Space below price
+            }
+
+            #sizeSelector {
+                padding: 10px; // Padding for the select element
+                margin-bottom: 15px; // Space below size selector
+                border: 1px solid #342923; // Border color
+                border-radius: 4px; // Rounded corners
+                background-color: #f7f0eb; // Off white background
+                color: #342923; // Dark blue text color
+                cursor: pointer; // Cursor style
+            }
+
+            .description {
+                font-size: 1rem; // Font size for description
+                color: #342923; // Dark blue text color
+                margin-bottom: 20px; // Space below description
+            }
+
+            .addCart {
+                background-color: #342923; // Dark blue button
+                color: #ffffff; // White text
+                padding: 10px; // Padding around the button
+                border: none; // No border
+                border-radius: 4px; // Rounded corners
+                cursor: pointer; // Pointer cursor
+                transition: background-color 0.3s;
+
+                &:hover {
+                    background-color: #5f799e; // Lighter dark blue on hover
+                }
+
+                &:disabled {
+                    background-color: #b0b0b0; // Gray for disabled
+                    cursor: not-allowed; // Not allowed cursor
+                }
+            }
+        }
+    }
+
+    .section-two {
+        width: 100%;
+        height: auto; // Auto height
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        justify-content: space-between;
+        margin-top: 20px; // Space between sections
+
+        h2 {
+            width: 100%;
+            height: 5vh; // Height of the title section
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #342923; // Dark blue title color
+            font-size: 1.8rem; // Font size for section title
+        }
+
+        .similar-products {
+            width: 100%;
+            height: auto; // Auto height
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+
+            @media (min-width: 624px) {
+                flex-wrap: wrap;
+                flex-direction: row;
+                justify-content: center; // Center the similar products
+            }
+
+            .product {
+                width: 70%;
+                height: 30vh;
+                background-color: #f4a570; // Beige background
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: space-evenly;
+                border-radius: 8px; // Rounded corners
+                box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); // Soft shadow
+                transition: transform 0.3s;
+
+                a {
+                    width: 70%;
+                    height: 30%; // Responsive height for the link
+                    display: block; // Make the link fill the space
+                    img {
+                        width: 100%;
+                        border-radius: 8px; // Rounded corners for images
+                    }
+                }
+
+                &:hover {
+                    transform: translateY(-5px); // Lift effect on hover
+                }
+
+                @media (min-width: 624px) {
+                    width: 30vh; // Adjust width for larger screens
+                    height: 40vh; // Adjust height for larger screens
+                }
+            }
+        }
+    }
+}

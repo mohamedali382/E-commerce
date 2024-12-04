@@ -1,0 +1,250 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  border: 20px #bdc3de solid;
+}
+body header {
+  width: 100%;
+  height: 20vh;
+  display: grid;
+  grid-template-rows: 1fr 3fr 1fr;
+}
+body header .offer {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f4bccd;
+}
+body header .head {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+body header .head div {
+  width: 25%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  align-items: center;
+}
+body header .head div h1 {
+  font-weight: bolder;
+}
+body header .head div a {
+  text-decoration: none;
+  color: black;
+}
+body header nav {
+  width: 100%;
+  height: 100%;
+  background-color: #bdc3de;
+}
+body header nav ul {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  padding: 0;
+  margin: 0;
+}
+body header nav ul li {
+  list-style: none;
+}
+body header nav ul li a {
+  text-decoration: none;
+  color: black;
+}
+body footer {
+  background-color: #f3e0d1;
+  padding: 40px 20px;
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  color: #342822;
+  font-family: Arial, sans-serif;
+}
+body footer .links {
+  flex: 1 1 200px;
+  margin: 10px;
+  text-align: center;
+}
+body footer .links h1, body footer .links h3 {
+  font-family: "Georgia", serif;
+  margin-bottom: 15px;
+}
+body footer .links h1 {
+  font-size: 2rem;
+  color: #687ca0;
+}
+body footer .links h3 {
+  font-size: 1.2rem;
+  color: #868c70;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+body footer .links .spans {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+body footer .links .spans span {
+  font-size: 1rem;
+}
+body footer .links .spans span a {
+  text-decoration: none;
+  color: #5f799e;
+  transition: color 0.3s ease;
+}
+body footer .links .spans span a:hover {
+  color: #ffa063;
+}
+@media (max-width: 768px) {
+  body footer {
+    flex-direction: column;
+    align-items: center;
+  }
+  body .links {
+    text-align: left;
+  }
+}
+
+/* Variables for theme colors */
+/* Global styles */
+body {
+  font-family: "Arial", sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f7f0eb;
+  color: #342922;
+  line-height: 1.6;
+}
+
+main {
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+}
+
+/* Purchase form styling */
+.purcacheForm {
+  background-color: #f3e0d0;
+  border: 2px solid #687ca0;
+  border-radius: 10px;
+  padding: 2rem;
+  width: 100%;
+  max-width: 600px;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.purcacheForm input {
+  padding: 0.75rem;
+  border: 1px solid #687ca0;
+  border-radius: 5px;
+  font-size: 1rem;
+  color: #342922;
+  background-color: #f7f0eb;
+}
+.purcacheForm #stripe-card-element {
+  padding: 1rem;
+  border: 2px solid #687ca0;
+  border-radius: 5px;
+  background-color: #f7f0eb;
+  color: #342922;
+  font-size: 1rem;
+  width: 100%;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: border-color 0.3s ease;
+}
+.purcacheForm #stripe-card-element:focus-within {
+  border-color: #889174;
+}
+.purcacheForm button {
+  padding: 0.75rem 1.5rem;
+  background-color: #687ca0;
+  color: #f7f0eb;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+.purcacheForm button:hover {
+  background-color: #889174;
+}
+
+/* Order section styling */
+.requiredOrder {
+  background-color: #f7f0eb;
+  border: 2px solid #687ca0;
+  border-radius: 10px;
+  padding: 2rem;
+  width: 100%;
+  max-width: 600px;
+}
+.requiredOrder .item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border-bottom: 1px solid #687ca0;
+}
+.requiredOrder .item img {
+  width: 80px;
+  height: 80px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 5px;
+  border: 1px solid #342922;
+}
+.requiredOrder .item p {
+  margin: 0;
+  font-size: 1rem;
+}
+.requiredOrder .item p:nth-of-type(1) {
+  font-weight: bold;
+}
+.requiredOrder .item button {
+  padding: 0.5rem 1rem;
+  background-color: #f4a570;
+  color: #f7f0eb;
+  border: none;
+  border-radius: 5px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+.requiredOrder .item button:hover {
+  background-color: #687ca0;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .purcacheForm,
+  .requiredOrder {
+    padding: 1rem;
+  }
+  .item {
+    flex-direction: column;
+    text-align: center;
+    gap: 1rem;
+  }
+  .item img {
+    margin-bottom: 0.5rem;
+  }
+}/*# sourceMappingURL=purcash.css.map */

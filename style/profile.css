@@ -1,0 +1,304 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  border: 20px #bdc3de solid;
+}
+body header {
+  width: 100%;
+  height: 20vh;
+  display: grid;
+  grid-template-rows: 1fr 3fr 1fr;
+}
+body header .offer {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f4bccd;
+}
+body header .head {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+body header .head div {
+  width: 25%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  align-items: center;
+}
+body header .head div h1 {
+  font-weight: bolder;
+}
+body header .head div a {
+  text-decoration: none;
+  color: black;
+}
+body header nav {
+  width: 100%;
+  height: 100%;
+  background-color: #bdc3de;
+}
+body header nav ul {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  padding: 0;
+  margin: 0;
+}
+body header nav ul li {
+  list-style: none;
+}
+body header nav ul li a {
+  text-decoration: none;
+  color: black;
+}
+body footer {
+  background-color: #f3e0d1;
+  padding: 40px 20px;
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  color: #342822;
+  font-family: Arial, sans-serif;
+}
+body footer .links {
+  flex: 1 1 200px;
+  margin: 10px;
+  text-align: center;
+}
+body footer .links h1, body footer .links h3 {
+  font-family: "Georgia", serif;
+  margin-bottom: 15px;
+}
+body footer .links h1 {
+  font-size: 2rem;
+  color: #687ca0;
+}
+body footer .links h3 {
+  font-size: 1.2rem;
+  color: #868c70;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+body footer .links .spans {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+body footer .links .spans span {
+  font-size: 1rem;
+}
+body footer .links .spans span a {
+  text-decoration: none;
+  color: #5f799e;
+  transition: color 0.3s ease;
+}
+body footer .links .spans span a:hover {
+  color: #ffa063;
+}
+@media (max-width: 768px) {
+  body footer {
+    flex-direction: column;
+    align-items: center;
+  }
+  body .links {
+    text-align: left;
+  }
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  background-color: #f7f0eb;
+  margin: 0;
+  padding: 0;
+  color: #342923;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  gap: 20px;
+}
+main .welcome_message {
+  width: 70%;
+  height: 50vh;
+  background: linear-gradient(135deg, #c0c7df, #f3e0d1);
+  border-radius: 12px;
+  padding: 25px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+main .welcome_message h2 {
+  font-size: 2.2rem;
+  font-weight: bold;
+  color: #687ca0;
+  margin-bottom: 10px;
+  position: relative;
+}
+main .welcome_message h2 span {
+  display: inline-block;
+  font-size: 1.8rem;
+  color: #f4a570;
+  font-weight: bold;
+  animation: fade-in 1.5s ease-in-out infinite alternate;
+}
+@keyframes fade-in {
+  from {
+    opacity: 0.7;
+  }
+  to {
+    opacity: 1;
+  }
+}
+main .welcome_message h5 {
+  font-size: 1rem;
+  color: #342923;
+  margin-bottom: 20px;
+}
+main .welcome_message button {
+  background: #f4a570;
+  color: #f7f0eb;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 20px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+main .welcome_message button:hover {
+  background: #f08741;
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+  transform: translateY(-2px);
+}
+main .welcome_message:after {
+  content: "";
+  position: absolute;
+  width: 150px;
+  height: 150px;
+  background: #687ca0;
+  border-radius: 50%;
+  top: -40px;
+  right: -40px;
+  opacity: 0.2;
+}
+main .welcome_message:before {
+  content: "";
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  background: #f4a570;
+  border-radius: 50%;
+  bottom: -20px;
+  left: -30px;
+  opacity: 0.1;
+}
+main section {
+  width: 90%;
+  max-width: 600px;
+  background-color: #f3e0d1;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 15px;
+  margin-bottom: 20px;
+}
+main section h2, main section h3, main section h5 {
+  margin: 0;
+  padding: 0;
+  color: #687ca0;
+}
+main section h2 span {
+  color: #f4a570;
+}
+main section h5 {
+  font-size: 0.9rem;
+  color: #342923;
+}
+main section button {
+  background-color: #f4a570;
+  border: none;
+  border-radius: 4px;
+  color: #f7f0eb;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: background-color 0.3s ease;
+}
+main section button a {
+  text-decoration: none;
+  color: white;
+}
+main section button:hover {
+  background-color: #f08741;
+}
+
+.pending_orders h3, .history_orders h3 {
+  font-size: 1.5rem;
+  color: #889174;
+  text-align: center;
+  margin-bottom: 10px;
+}
+.pending_orders .order, .history_orders .order {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 10px;
+  background-color: #c0c7df;
+  border: 1px solid #342923;
+  border-radius: 5px;
+  margin: 10px 0;
+}
+.pending_orders .order .orderId, .pending_orders .order .orderPrice, .pending_orders .order .Time, .pending_orders .order .date, .history_orders .order .orderId, .history_orders .order .orderPrice, .history_orders .order .Time, .history_orders .order .date {
+  font-size: 1rem;
+  color: #687ca0;
+}
+.pending_orders .order button, .history_orders .order button {
+  align-self: center;
+  padding: 5px 15px;
+  font-size: 0.85rem;
+  background-color: #687ca0;
+  color: #f7f0eb;
+  border: none;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+.pending_orders .order button:hover, .history_orders .order button:hover {
+  background-color: #8797b4;
+}
+
+@media (max-width: 768px) {
+  main {
+    padding: 10px;
+  }
+  main section {
+    width: 100%;
+  }
+  main .order {
+    padding: 8px;
+  }
+  main h3 {
+    font-size: 1.2rem;
+  }
+  main button {
+    font-size: 0.8rem;
+    padding: 8px 12px;
+  }
+}/*# sourceMappingURL=profile.css.map */

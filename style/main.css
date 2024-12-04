@@ -1,0 +1,306 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  border: 20px #bdc3de solid;
+}
+body header {
+  width: 100%;
+  height: 20vh;
+  display: grid;
+  grid-template-rows: 1fr 3fr 1fr;
+}
+body header .offer {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f4bccd;
+}
+body header .head {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+body header .head div {
+  width: 25%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  align-items: center;
+}
+body header .head div h1 {
+  font-weight: bolder;
+}
+body header .head div a {
+  text-decoration: none;
+  color: black;
+}
+body header nav {
+  width: 100%;
+  height: 100%;
+  background-color: #bdc3de;
+}
+body header nav ul {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  padding: 0;
+  margin: 0;
+}
+body header nav ul li {
+  list-style: none;
+}
+body header nav ul li a {
+  text-decoration: none;
+  color: black;
+}
+body footer {
+  background-color: #f3e0d1;
+  padding: 40px 20px;
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  color: #342822;
+  font-family: Arial, sans-serif;
+}
+body footer .links {
+  flex: 1 1 200px;
+  margin: 10px;
+  text-align: center;
+}
+body footer .links h1, body footer .links h3 {
+  font-family: "Georgia", serif;
+  margin-bottom: 15px;
+}
+body footer .links h1 {
+  font-size: 2rem;
+  color: #687ca0;
+}
+body footer .links h3 {
+  font-size: 1.2rem;
+  color: #868c70;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+body footer .links .spans {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+body footer .links .spans span {
+  font-size: 1rem;
+}
+body footer .links .spans span a {
+  text-decoration: none;
+  color: #5f799e;
+  transition: color 0.3s ease;
+}
+body footer .links .spans span a:hover {
+  color: #ffa063;
+}
+@media (max-width: 768px) {
+  body footer {
+    flex-direction: column;
+    align-items: center;
+  }
+  body .links {
+    text-align: left;
+  }
+}
+
+main {
+  width: 100%;
+  height: 230vh;
+  display: grid;
+  grid-template-rows: 5fr 2fr 1fr 4fr;
+}
+main .section-one {
+  width: 100%;
+  height: 100%;
+  background-color: #f8f1eb;
+}
+@media (min-width: 900px) {
+  main .section-one {
+    display: flex;
+  }
+}
+main .section-one img {
+  width: 100%;
+  height: 50%;
+}
+@media (min-width: 900px) {
+  main .section-one img {
+    width: 60%;
+    height: 60%;
+    position: relative;
+    top: 20%;
+  }
+}
+main .section-one article {
+  height: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  text-align: center;
+}
+@media (min-width: 900px) {
+  main .section-one article {
+    text-align: left;
+    align-items: normal;
+    width: 40%;
+    position: relative;
+    top: 25%;
+  }
+}
+main .section-one article a {
+  width: 30%;
+  height: 6vh;
+}
+main .section-one article a button {
+  width: 100%;
+  background-color: #848d6f;
+  color: black;
+  border: 0;
+  height: 100%;
+  border-radius: 20px;
+}
+main .pre-section-one {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+}
+main .pre-section-one .categories {
+  width: 90%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  align-items: center;
+}
+main .pre-section-one .categories .market {
+  width: 50%;
+  height: 100%;
+  display: grid;
+  grid-template-rows: 3fr 1fr;
+  align-items: center;
+}
+main .pre-section-one .categories .market .shop-link {
+  width: 100%;
+  height: 90%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url("../img/Screenshot 2024-10-04 213241.png");
+  background-size: 100% 100%;
+  border: 10px #848d6f solid;
+}
+@media (min-width: 1024px) {
+  main .pre-section-one .categories .market .shop-link {
+    width: 80%;
+    margin-left: 10%;
+  }
+}
+main .pre-section-one .categories .market .shop-link div {
+  width: 50%;
+  height: 20%;
+  background-color: #e81f1f;
+  display: flex;
+  color: #e7e1d6;
+  justify-content: center;
+  align-items: center;
+  border-radius: 20px;
+}
+main .pre-section-one .categories .market p {
+  font-size: 1em;
+  font-weight: bold;
+  text-align: center;
+}
+main .section-two {
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  gap: 15px;
+  margin-top: 10px;
+}
+main .section-two .services {
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  text-align: center;
+}
+main .section-two .services img {
+  height: 10%;
+}
+@media (min-width: 500px) {
+  main .section-two .services img {
+    height: 20%;
+  }
+}
+main .section-two .services h4 {
+  font-size: 1em;
+}
+@media (min-width: 700px) {
+  main .section-two .services h4 {
+    font-size: 1.5em;
+  }
+}
+main .section-two .services p {
+  font-size: 0.6em;
+}
+@media (min-width: 700px) {
+  main .section-two .services p {
+    font-size: 1em;
+  }
+}
+main .section-three {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 2fr 2fr;
+  gap: 5px;
+}
+main .section-three .home-photo {
+  width: 100%;
+  height: 100%;
+  background-image: url("../img/girl.svg");
+  background-size: 100% 100%;
+  background-color: #e7e1d6;
+}
+main .section-three .home-photos-two {
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  gap: 5px;
+}
+main .section-three .home-photos-two .photo-one {
+  width: 100%;
+  height: 100%;
+  background-image: url("../img/image 3.svg");
+}
+main .section-three .home-photos-two .photo-two {
+  width: 100%;
+  height: 100%;
+  background-image: url("../img/image 4.svg");
+}
+main .section-three .home-font {
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.5725490196);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}/*# sourceMappingURL=main.css.map */

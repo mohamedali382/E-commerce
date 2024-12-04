@@ -1,0 +1,205 @@
+// Color Variables from the provided palette
+$background-color: #f6f0e5;
+$card-bg: #f3e0d0;
+$text-color: #342822;
+$primary-color: #5f799e;
+$secondary-color: #ffa063;
+$accent-color: #f6d1cc;
+$hover-color: #f4bccd;
+$muted-color: #868c70;
+$border-color: #bdc3de;
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: $background-color;
+  margin: 0;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+
+  @media (max-width: 768px) {
+    padding: 10px; // Reduced padding for smaller screens
+  }
+}
+
+main {
+  width: 90%;
+  max-width: 1000px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+// Cart Items Section
+#cartItems {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.item {
+  background-color: $card-bg;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: box-shadow 0.3s ease;
+
+  &:hover {
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  }
+
+  img {
+    max-width: 120px;
+    border-radius: 8px;
+  }
+
+  .details {
+    flex-grow: 1;
+    padding-left: 20px;
+    display: flex;
+    flex-direction: column;
+
+    .itemName {
+      font-size: 1.2em;
+      font-weight: bold;
+      color: $text-color;
+      margin-bottom: 10px;
+    }
+
+    .itemSize {
+      color: $muted-color;
+      font-size: 0.9em;
+      margin-bottom: 10px;
+    }
+
+    .itemPrice {
+      color: $primary-color;
+      font-size: 1.1em;
+    }
+  }
+
+//   .quantityControl {
+//     display: flex;
+//     align-items: center;
+
+    span {
+      cursor: pointer;
+      background-color: $primary-color;
+      color: white;
+      font-size: 1.4em;
+      background-color: #868c70;
+      padding: 5px 15px;
+      border-radius: 5px;
+      margin: 0 10px;
+      transition: background-color 0.3s;
+
+      &:hover {
+        background-color: $secondary-color;
+      }
+    }
+
+    .itemCount {
+      font-size: 1.2em;
+      font-weight: bold;
+      color: $text-color;
+    }
+
+}
+
+// Cart Summary Section
+#cartSummary {
+  background-color: $accent-color;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .total {
+    font-size: 1.5em;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: $primary-color;
+  }
+
+  .checkoutButton {
+    background-color: $primary-color;
+    color: white;
+    padding: 10px 20px;
+    font-size: 1.2em;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+
+    &:hover {
+      background-color: $secondary-color;
+    }
+  }
+}
+
+// Close and Checkout Buttons Section
+.buttons {
+  display: flex;
+  justify-content: space-between;
+
+  .closeButton,
+  #checkOut {
+    background-color: $primary-color;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+
+    &:hover {
+      background-color: $secondary-color;
+    }
+  }
+
+  #checkOut {
+    background-color: $secondary-color;
+  }
+}
+
+// Media Queries for Responsiveness
+@media (max-width: 768px) {
+  .item {
+    flex-direction: column; // Stack item details vertically on smaller screens
+    align-items: center; // Align items to the start
+  }
+
+  .details {
+    padding-left: 0; // Remove left padding for smaller screens
+    margin-bottom: 10px; // Add margin for spacing
+  }
+
+  .quantityControl {
+    justify-content: center; // Center quantity controls on smaller screens
+    width: 100%; // Take full width
+  }
+
+  .total {
+    font-size: 1.3em; // Adjust font size for the total
+  }
+
+  .checkoutButton {
+    width: 100%; // Full width for the checkout button
+  }
+
+  .buttons {
+    flex-direction: column; // Stack buttons on top of each other
+    gap: 10px; // Add spacing between buttons
+  }
+}
+
+
+
+

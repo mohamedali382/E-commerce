@@ -1,0 +1,92 @@
+/* Variables for theme colors */
+:root {
+  --off-white: #f7f0eb;
+  --beige: #f3e0d0;
+  --dark-blue: #687ca0;
+  --dark-brown: #342922;
+  --pale-pink: #f3d4cf;
+  --orange: #f4a570;
+  --olive-green: #889174;
+}
+
+/* Global styles */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Arial", sans-serif;
+  background-color: var(--off-white);
+  color: var(--dark-brown);
+  line-height: 1.6;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+/* Main success page styling */
+.success-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+.success-container {
+  background-color: var(--beige);
+  border: 2px solid var(--dark-blue);
+  border-radius: 10px;
+  padding: 2rem;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  max-width: 600px;
+  width: 90%;
+}
+
+.success-container h1 {
+  color: var(--dark-blue);
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.success-container p {
+  font-size: 1.2rem;
+  margin: 0.5rem 0;
+}
+
+.delivery-info {
+  font-size: 1.4rem;
+  color: var(--olive-green);
+  font-weight: bold;
+  margin-top: 1rem;
+}
+
+.actions {
+  margin-top: 2rem;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.btn {
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  text-decoration: none;
+  color: var(--off-white);
+  background-color: var(--dark-blue);
+  transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+  background-color: var(--olive-green);
+}
+
+.btn-secondary {
+  background-color: var(--orange);
+}
+
+.btn-secondary:hover {
+  background-color: var(--dark-blue);
+}/*# sourceMappingURL=message.css.map */

@@ -1,0 +1,172 @@
+@use "./global_rules.scss" as *;
+main {
+    width: 100%;
+    height: auto;
+    display: grid;
+    grid-template-rows: 1fr 2fr;
+    background-color: #f7f0eb;
+
+    @media (min-width: 1024px) {
+        grid-template-rows: none;
+        grid-template-columns: 3fr 4fr; // Side-by-side layout on larger screens
+        direction: rtl; // Right-to-left direction for layout
+    }
+
+    .formSection {
+        width: 100%;
+        height: 80vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        @media (min-width: 1024px) {
+            height: 100vh; // Full viewport height on larger screens
+            align-items: center;
+        }
+
+        form {
+            width: 80%;
+            height: 100%;
+            display: grid;
+            grid-template-rows: 1fr 4fr 1fr;
+            direction: ltr; // Left-to-right direction for form inputs
+            background-color: #f3d4cf; // Light beige background for the form
+            border-radius: 8px; // Rounded corners
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); // Soft shadow for depth
+
+            @media (min-width: 1024px) {
+                height: 80%;
+            }
+
+            .fonts {
+                width: 100%;
+                height: 100%;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+
+                h1 {
+                    font-size: 2rem; // Large title font size
+                    color: #342923; // Dark blue color for heading
+                }
+
+                p {
+                    font-size: 1rem; // Regular paragraph font size
+                    color: #5f799e; // Slightly lighter blue color
+                }
+            }
+
+            .inputs {
+                width: 100%;
+                height: 100%;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-evenly;
+                align-items: center;
+
+                textarea {
+                    height: 25%; // Height of the textarea
+                }
+
+                input,
+                textarea {
+                    width: 70%;
+                    padding: 10px; // Increased padding for better touch
+                    margin-bottom: 20px; // Space below inputs
+                    border: 2px solid #e0e0e0; // Light gray border
+                    font-size: 16px; // Font size for inputs
+                    background-color: #f9f9f9; // Light background for inputs
+                    border-radius: 4px; // Rounded corners
+                    transition: border-color 0.3s ease;
+
+                    &:focus {
+                        border-color: #3498db; // Blue focus border
+                        outline: none; // Remove outline
+                        background-color: #fff; // White background on focus
+                    }
+                }
+            }
+
+            .buttons {
+                width: 100%;
+                height: 100%;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+
+                button {
+                    width: 70%;
+                    height: 40%; // Increased button height
+                    border-radius: 20px; // Rounded button
+                    border: none; // No border
+                    background-color: #342923; // Dark blue button background
+                    color: #fff; // White text
+                    font-size: 16px; // Font size for button
+                    cursor: pointer; // Pointer cursor on hover
+                    transition: background-color 0.3s;
+
+                    &:hover {
+                        background-color: #5f799e; // Lighter blue on hover
+                    }
+                }
+            }
+        }
+    }
+
+    section {
+        width: 100%;
+        display: grid;
+        grid-template-rows: 3fr 1fr;
+
+        .section-one {
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-evenly;
+
+            h2 {
+                font-size: 1.8rem; // Large heading size
+                color: #342923; // Dark blue color for section heading
+            }
+
+            p {
+                font-size: 1rem; // Regular paragraph size
+                color: #5f799e; // Lighter blue color for text
+            }
+        }
+
+        .section-two {
+            width: 100%;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr); // Three equal columns
+            gap: 10px;
+
+            article {
+                width: 100%;
+                height: 100%;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-evenly;
+                text-align: center;
+                align-items: center;
+                background-color: #f4bccd; // Light background for articles
+                border-radius: 8px; // Rounded corners
+                padding: 10px; // Padding inside articles
+                box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); // Soft shadow for articles
+
+                h3 {
+                    color: #342923; // Dark blue color for article headings
+                }
+
+                p {
+                    color: #5f799e; // Lighter blue color for article text
+                }
+            }
+        }
+    }
+}

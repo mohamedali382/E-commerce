@@ -1,0 +1,219 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  border: 20px #bdc3de solid;
+}
+body header {
+  width: 100%;
+  height: 20vh;
+  display: grid;
+  grid-template-rows: 1fr 3fr 1fr;
+}
+body header .offer {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f4bccd;
+}
+body header .head {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+body header .head div {
+  width: 25%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  align-items: center;
+}
+body header .head div h1 {
+  font-weight: bolder;
+}
+body header .head div a {
+  text-decoration: none;
+  color: black;
+}
+body header nav {
+  width: 100%;
+  height: 100%;
+  background-color: #bdc3de;
+}
+body header nav ul {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  padding: 0;
+  margin: 0;
+}
+body header nav ul li {
+  list-style: none;
+}
+body header nav ul li a {
+  text-decoration: none;
+  color: black;
+}
+body footer {
+  background-color: #f3e0d1;
+  padding: 40px 20px;
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  color: #342822;
+  font-family: Arial, sans-serif;
+}
+body footer .links {
+  flex: 1 1 200px;
+  margin: 10px;
+  text-align: center;
+}
+body footer .links h1, body footer .links h3 {
+  font-family: "Georgia", serif;
+  margin-bottom: 15px;
+}
+body footer .links h1 {
+  font-size: 2rem;
+  color: #687ca0;
+}
+body footer .links h3 {
+  font-size: 1.2rem;
+  color: #868c70;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+body footer .links .spans {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+body footer .links .spans span {
+  font-size: 1rem;
+}
+body footer .links .spans span a {
+  text-decoration: none;
+  color: #5f799e;
+  transition: color 0.3s ease;
+}
+body footer .links .spans span a:hover {
+  color: #ffa063;
+}
+@media (max-width: 768px) {
+  body footer {
+    flex-direction: column;
+    align-items: center;
+  }
+  body .links {
+    text-align: left;
+  }
+}
+
+main {
+  margin: 0;
+  padding: 0;
+  font-family: "YourFontName", sans-serif;
+  color: #342822;
+  background-color: #f7f0eb;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.section-one {
+  padding: 2rem;
+  background-color: #f3e0d0;
+}
+.section-one h1 {
+  font-size: 2.5rem;
+  color: #687ca0;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+.section-one .section-one-content {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+}
+.section-one .section-one-content article {
+  flex: 1;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #342822;
+  margin-right: 2rem;
+  text-align: justify;
+}
+.section-one .section-one-content .co-founder {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.section-one .section-one-content .co-founder .image {
+  width: 200px;
+  height: 200px;
+  background-color: #687ca0;
+  border-radius: 50%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.section-two {
+  padding: 2rem;
+  background-color: #f7f0eb;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.section-two .MV-section {
+  flex: 1;
+  margin: 1rem;
+  padding: 2rem;
+  background-color: #f3e0d0;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.section-two .MV-section h1 {
+  font-size: 2rem;
+  color: #f5a570;
+  margin-bottom: 1rem;
+}
+.section-two .MV-section article {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #342822;
+}
+
+@media (max-width: 768px) {
+  .section-one-content {
+    flex-direction: column;
+  }
+  .section-one-content article {
+    margin-right: 0;
+    margin-bottom: 2rem;
+  }
+  .section-one-content .co-founder .image {
+    width: 150px;
+    height: 150px;
+  }
+  .section-two .MV-section {
+    margin: 0.5rem;
+    padding: 1.5rem;
+  }
+  .section-two .MV-section h1 {
+    font-size: 1.8rem;
+  }
+  .section-two .MV-section article {
+    font-size: 0.9rem;
+  }
+}/*# sourceMappingURL=aboutUs.css.map */

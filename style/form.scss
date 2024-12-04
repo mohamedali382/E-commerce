@@ -1,0 +1,135 @@
+@use './global_rules.scss' as *;
+.container {
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: #f7f0eb; // Light background color
+
+    .alert {
+        color: #e74c3c; // Red color for alerts
+        margin-bottom: 20px;
+        font-weight: bold;
+        text-align: center;
+    }
+
+    .forms {
+        width: 90%;
+        max-width: 400px; // Set a max width for forms
+        background-color: #fff; // White background for the form container
+        border-radius: 10px; // Rounded corners
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); // Soft shadow for elevation
+        padding: 20px; // Inner spacing
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        form {
+            width: 100%;
+            margin: 10px 0;
+
+            h1 {
+                text-align: center;
+                color: #362821; // Dark color for headings
+                margin-bottom: 20px;
+            }
+
+            input {
+                width: 100%;
+                padding: 10px;
+                margin-bottom: 15px;
+                border: 1px solid #e0e0e0;
+                border-radius: 5px; // Rounded input corners
+                font-size: 16px;
+
+                &:focus {
+                    border-color: #3498db; // Focused border color
+                    outline: none;
+                    background-color: #f9f9f9; // Light background on focus
+                }
+            }
+
+            button {
+                width: 100%;
+                padding: 10px;
+                background-color: #362821; // Dark button color
+                color: #fff; // White text color
+                border: none;
+                border-radius: 5px; // Rounded button corners
+                font-size: 16px;
+                cursor: pointer;
+
+                &:hover {
+                    background-color: #36282192; // Button hover effect
+                    transition: 0.3s;
+                }
+            }
+
+            a {
+                display: block; // Make links block for better spacing
+                text-align: center;
+                margin-top: 10px;
+                color: #3498db; // Link color
+                text-decoration: none;
+
+                &:hover {
+                    text-decoration: underline; // Underline on hover
+                }
+            }
+        }
+
+        .image {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 20px;
+            width: 100%;
+            height: 200px; // Fixed height for the image section
+            position: relative;
+            overflow: hidden;
+
+            .image-blur {
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background-color: rgba(0, 0, 0, 0.5); // Overlay effect
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                transition: 0.3s;
+
+                .image-content {
+                    color: #fff; // White text for overlay
+                    text-align: center;
+
+                    h1 {
+                        font-size: 24px;
+                        margin-bottom: 10px;
+                    }
+
+                    p {
+                        font-size: 14px;
+                        margin-bottom: 20px;
+                    }
+
+                    button {
+                        background-color: #ffa063; // Button color for the overlay
+                        padding: 10px 15px;
+                        border: none;
+                        border-radius: 5px;
+                        cursor: pointer;
+                        color: #fff;
+
+                        &:hover {
+                            background-color: #ff8924; // Button hover effect
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

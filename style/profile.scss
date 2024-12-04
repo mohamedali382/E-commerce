@@ -1,0 +1,222 @@
+@use './global_rules.scss' as *;
+// Define color variables from the palette
+$off-white: #f7f0eb;
+$beige: #f3e0d1;
+$dark-blue: #687ca0;
+$dark-brown: #342923;
+$pale-pink: #f3d4cf;
+$muted-green: #889174;
+$light-blue: #c0c7df;
+$orange: #f4a570;
+
+// Global Styles
+body {
+  font-family: 'Roboto', sans-serif; // Adjust to your chosen font
+  background-color: $off-white;
+  margin: 0;
+  padding: 0;
+  color: $dark-brown;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  gap: 20px;
+
+  .welcome_message {
+    width: 70%;
+    height: 50vh;
+    background: linear-gradient(135deg, $light-blue, $beige);
+    border-radius: 12px;
+    padding: 25px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  
+    // Profile details layout
+    h2 {
+      font-size: 2.2rem;
+      font-weight: bold;
+      color: $dark-blue;
+      margin-bottom: 10px;
+      position: relative;
+  
+      span {
+        display: inline-block;
+        font-size: 1.8rem;
+        color: $orange;
+        font-weight: bold;
+        animation: fade-in 1.5s ease-in-out infinite alternate;
+        @keyframes fade-in {
+            from {
+              opacity: 0.7;
+            }
+            to {
+              opacity: 1;
+            }
+          }
+      }
+    }
+  
+    h5 {
+      font-size: 1rem;
+      color: $dark-brown;
+      margin-bottom: 20px;
+    }
+  
+    // Logout button
+    button {
+      background: $orange;
+      color: $off-white;
+      border: none;
+      border-radius: 8px;
+      padding: 10px 20px;
+      font-size: 1rem;
+      font-weight: bold;
+      cursor: pointer;
+      box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+      transition: all 0.3s ease;
+      &:hover {
+        background: darken($orange, 10%);
+        box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+        transform: translateY(-2px);
+      }
+    }
+    // Add a decorative element
+    &:after {
+      content: '';
+      position: absolute;
+      width: 150px;
+      height: 150px;
+      background: $dark-blue;
+      border-radius: 50%;
+      top: -40px;
+      right: -40px;
+      opacity: 0.2;
+    }
+  
+    &:before {
+      content: '';
+      position: absolute;
+      width: 100px;
+      height: 100px;
+      background: $orange;
+      border-radius: 50%;
+      bottom: -20px;
+      left: -30px;
+      opacity: 0.1;
+    }
+  }
+  section {
+    width: 90%;
+    max-width: 600px;
+    background-color: $beige;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    margin-bottom: 20px;
+
+    h2, h3, h5 {
+      margin: 0;
+      padding: 0;
+      color: $dark-blue;
+    }
+
+    h2 span {
+      color: $orange;
+    }
+
+    h5 {
+      font-size: 0.9rem;
+      color: $dark-brown;
+    }
+
+    button {
+      background-color: $orange;
+      border: none;
+      border-radius: 4px;
+      color: $off-white;
+      padding: 10px 20px;
+      cursor: pointer;
+      font-size: 0.9rem;
+      transition: background-color 0.3s ease;
+      a{
+        text-decoration: none;
+        color: white;
+      }
+
+      &:hover {
+        background-color: darken($orange, 10%);
+      }
+    }
+  }
+}
+
+// Styling for Orders Sections
+.pending_orders, .history_orders {
+  h3 {
+    font-size: 1.5rem;
+    color: $muted-green;
+    text-align: center;
+    margin-bottom: 10px;
+  }
+
+  .order {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 10px;
+    background-color: $light-blue;
+    border: 1px solid $dark-brown;
+    border-radius: 5px;
+    margin: 10px 0;
+
+    .orderId, .orderPrice, .Time, .date {
+      font-size: 1rem;
+      color: $dark-blue;
+    }
+
+    button {
+      align-self: center;
+      padding: 5px 15px;
+      font-size: 0.85rem;
+      background-color: $dark-blue;
+      color: $off-white;
+      border: none;
+      border-radius: 4px;
+      transition: background-color 0.3s ease;
+
+      &:hover {
+        background-color: lighten($dark-blue, 10%);
+      }
+    }
+  }
+}
+
+// Responsive Design
+@media (max-width: 768px) {
+  main {
+    padding: 10px;
+
+    section {
+      width: 100%;
+    }
+
+    .order {
+      padding: 8px;
+    }
+
+    h3 {
+      font-size: 1.2rem;
+    }
+
+    button {
+      font-size: 0.8rem;
+      padding: 8px 12px;
+    }
+  }
+}
+

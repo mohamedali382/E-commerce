@@ -1,0 +1,122 @@
+@use "./global_rules.scss" as *;
+$off-white: #f7f0eb;
+$beige: #f3e0d0;
+$dark-blue: #687ca0;
+$accent: #f5a570;
+$text-color: #342822;
+
+main {
+    margin: 0;
+    padding: 0;
+    font-family: 'YourFontName', sans-serif; // Replace 'YourFontName' with the actual font name.
+    color: $text-color;
+    background-color: $off-white;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.section-one {
+  padding: 2rem;
+  background-color: $beige;
+
+  h1 {
+    font-size: 2.5rem;
+    color: $dark-blue;
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+
+  .section-one-content {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+
+    article {
+      flex: 1;
+      font-size: 1.1rem;
+      line-height: 1.6;
+      color: $text-color;
+      margin-right: 2rem;
+      text-align: justify;
+    }
+
+    .co-founder {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      .image {
+        width: 200px;
+        height: 200px;
+        background-color: $dark-blue;
+        border-radius: 50%;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      }
+    }
+  }
+}
+
+.section-two {
+  padding: 2rem;
+  background-color: $off-white;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+
+  .MV-section {
+    flex: 1;
+    margin: 1rem;
+    padding: 2rem;
+    background-color: $beige;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+    h1 {
+      font-size: 2rem;
+      color: $accent;
+      margin-bottom: 1rem;
+    }
+
+    article {
+      font-size: 1rem;
+      line-height: 1.6;
+      color: $text-color;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .section-one-content {
+    flex-direction: column;
+
+    article {
+      margin-right: 0;
+      margin-bottom: 2rem;
+    }
+
+    .co-founder {
+      .image {
+        width: 150px;
+        height: 150px;
+      }
+    }
+  }
+
+  .section-two {
+    .MV-section {
+      margin: 0.5rem;
+      padding: 1.5rem;
+
+      h1 {
+        font-size: 1.8rem;
+      }
+
+      article {
+        font-size: 0.9rem;
+      }
+    }
+  }
+}

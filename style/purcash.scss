@@ -1,0 +1,151 @@
+@use './global_rules.scss' as *;
+/* Variables for theme colors */
+$off-white: #f7f0eb;
+$beige: #f3e0d0;
+$dark-blue: #687ca0;
+$dark-brown: #342922;
+$pale-pink: #f3d4cf;
+$orange: #f4a570;
+$olive-green: #889174;
+$soft-blue: #c0c7df;
+
+/* Global styles */
+body {
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: $off-white;
+  color: $dark-brown;
+  line-height: 1.6;
+}
+
+main {
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+}
+
+/* Purchase form styling */
+.purcacheForm {
+  background-color: $beige;
+  border: 2px solid $dark-blue;
+  border-radius: 10px;
+  padding: 2rem;
+  width: 100%;
+  max-width: 600px;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+  input {
+    padding: 0.75rem;
+    border: 1px solid $dark-blue;
+    border-radius: 5px;
+    font-size: 1rem;
+    color: $dark-brown;
+    background-color: $off-white;
+  }
+
+  #stripe-card-element {
+    padding: 1rem;
+    border: 2px solid $dark-blue;
+    border-radius: 5px;
+    background-color: $off-white;
+    color: $dark-brown;
+    font-size: 1rem;
+    width: 100%;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: border-color 0.3s ease;
+
+    &:focus-within {
+      border-color: $olive-green;
+    }
+  }
+
+  button {
+    padding: 0.75rem 1.5rem;
+    background-color: $dark-blue;
+    color: $off-white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+
+    &:hover {
+      background-color: $olive-green;
+    }
+  }
+}
+
+/* Order section styling */
+.requiredOrder {
+  background-color: $off-white;
+  border: 2px solid $dark-blue;
+  border-radius: 10px;
+  padding: 2rem;
+  width: 100%;
+  max-width: 600px;
+
+  .item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border-bottom: 1px solid $dark-blue;
+
+    img {
+      width: 80px;
+      height: 80px;
+      object-fit: cover;
+      border-radius: 5px;
+      border: 1px solid $dark-brown;
+    }
+
+    p {
+      margin: 0;
+      font-size: 1rem;
+
+      &:nth-of-type(1) {
+        font-weight: bold;
+      }
+    }
+
+    button {
+      padding: 0.5rem 1rem;
+      background-color: $orange;
+      color: $off-white;
+      border: none;
+      border-radius: 5px;
+      font-size: 0.9rem;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+
+      &:hover {
+        background-color: $dark-blue;
+      }
+    }
+  }
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .purcacheForm,
+  .requiredOrder {
+    padding: 1rem;
+  }
+
+  .item {
+    flex-direction: column;
+    text-align: center;
+    gap: 1rem;
+
+    img {
+      margin-bottom: 0.5rem;
+    }
+  }
+}
