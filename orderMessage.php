@@ -13,8 +13,8 @@
       <p>Thank you for your purchase! Your order is being processed and will be delivered within <strong>7-14 days</strong>.</p>
       <p>If you have any questions, feel free to contact our support team.</p>
       <div class="buttons">
-        <a href="./Products.php" class="btn">Continue Shopping</a>
-        <a href="./ContactUs.php" class="btn secondary">Contact Support</a>
+        <button href="./Products.php" class="btn">Continue Shopping</button>
+        <button href="./ContactUs.php" class="btn secondary">Contact Support</button>
       </div>
     </div>
   </main>

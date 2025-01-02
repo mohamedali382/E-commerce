@@ -1,7 +1,6 @@
 import { getCart } from "./cart.js";
 let totalPrice = 0;
 
-
 let cart = getCart();
 const items = document.getElementById('requiredOrder');
 
@@ -38,3 +37,23 @@ let tot = document.createElement("div")
 tot.textContent = `total Price: $${totalPrice}`;
 items.appendChild(tot)
 
+/********************************* */
+
+// Create a JSON object
+const jsonData = JSON.stringify({ 'total': totalPrice, 'orderItems': cart });
+
+fetch("dataTransfer.php", {
+    method: "POST",
+    headers: {
+        "Content-Type": "application/json"
+    },
+    body: jsonData
+})
+  
+.then(response => response.text())  // Handle the response
+.then(result => console.log(result))  // Print the response in the console
+.catch(error => console.error("Error:", error));
+
+/********************************************* */
+console.log("total price:", totalPrice);
+console.log(cart);

@@ -1,5 +1,5 @@
 <?php
-include "./connect.php";
+include "./backend/connect.php";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -54,7 +54,7 @@ include "./connect.php";
             ?>
         </div>
         <div class="forms-modify">
-            <form action="password-reset-code.php" method="POST">
+            <form action="./backend/password-reset-code.php" method="POST">
                 <h1>Change your password</h1>
                 <input type="hidden" name="password_token" value="<?php if(isset($_GET['token'])){echo $_GET['token'];} ?>">
                 <input type="email" name="Email" value="<?php if(isset($_GET['Email'])) {echo $_GET['Email'];}?>" placeholder="Email">

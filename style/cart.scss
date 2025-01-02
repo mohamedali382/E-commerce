@@ -8,7 +8,11 @@ $accent-color: #f6d1cc;
 $hover-color: #f4bccd;
 $muted-color: #868c70;
 $border-color: #bdc3de;
-
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 body {
   font-family: Arial, sans-serif;
   background-color: $background-color;

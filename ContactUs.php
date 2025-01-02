@@ -1,3 +1,7 @@
+<?php 
+include './connect.php';
+include './nav.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -7,46 +11,32 @@
     <title>Document</title>
   </head>
   <body>
-  <header>
-      <div class="offer">free shipping on orders over 200 AED</div>
-      <div class="head">
-        <div>carch</div>
-        <div><h1>BuRd</h1></div>
-        <div class="personals">
-          <a href="./signForms.php">Account</a>
-          <a href="./cart.php">Cart</a>
-        </div>
-      </div>
-      <nav>
-        <ul>
-          <li><a href="./index.php">Home</a></li>
-          <li><a href="./Products.php">Shop All</a></li>
-          <li><a href="./aboutUs.php">about us</a></li>
-          <li><a href="./ContactUs.php">contact us</a></li>
-        </ul>
-      </nav>
-    </header>
-
     <main>
       <div class="formSection">
-        <form action="">
+        <form action="sendMessage.php" method="POST">
           <div class="fonts">
             <h1>Get in touch</h1>
             <p>drop a message here</p>
           </div>
           <div class="inputs">
-            <input type="text" placeholder="First name" />
-            <input type="text" placeholder="Last name" />
-            <input type="text" placeholder="number" />
-            <input type="text" placeholder="Email" />
-            <textarea placeholder="your message" name="" id=""></textarea>
+            <input type="text" placeholder="First name" name="FirstName"/>
+            <input type="text" placeholder="Last name" name="LastName"/>
+            <input type="text" placeholder="number" name="Number"/>
+            <input type="text" placeholder="Email" name="Email"/>
+            <textarea placeholder="your message" name="message" id=""></textarea>
           </div>
           <div class="buttons">
-            <button type="submit">submit</button>
+            <button type="submit" name="click">submit</button>
             <p>Policy-privicy</p>
             <p>© 2024</p>
           </div>
         </form>
+        <?php
+        if (isset($_SESSION['Mess'])) {
+            echo "<h4>" . $_SESSION['Mess'] . "</h4>";
+            unset($_SESSION['Mess']);
+        }
+        ?>
       </div>
       <section>
         <div class="section-one">
@@ -71,35 +61,8 @@
         </div>
       </section>
     </main>
-    <footer>
-      <div class="links">
-        <h1>BuRd</h1>
-      </div>
-      <div class="links">
-        <h3>Info</h3>
-        <div class="spans">
-          <span>Digital</span>
-          <span>Print</span>
-          <span>Tutorial</span>
-          <span>FAQ</span>
-        </div>
-      </div>
-      <div class="links">
-        <h3>connect</h3>
-        <div class="spans">
-          <span><a href="#">instgram</a></span>
-          <span><a href="#">Facebook</a></span>
-          <span><a href="#">tiktok</a></span>
-          <span><a href="#">contact</a></span>
-        </div>
-      </div>
-      <div class="links">
-        <h3>Pen Pals</h3>
-        <div class="spans">
-          <span><a href="#">instgram</a></span>
-          <span><a href="#">Facebook</a></span>
-        </div>
-      </div>
-    </footer>
+    <?php 
+    include './footer.php';
+    ?>
   </body>
 </html>

@@ -6,7 +6,8 @@ export const getCart = () => {
 
 // Function to save the cart to localStorage
 export const setCart = (newCart) => {
-    localStorage.setItem("cart", JSON.stringify(newCart)); // Save the updated cart to localStorage
+    localStorage.setItem("cart", JSON.stringify(newCart)); 
+    
 };
 
 

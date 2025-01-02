@@ -29,12 +29,23 @@ body header .head {
   align-items: center;
 }
 body header .head div {
-  width: 25%;
+  width: 33%;
   height: 100%;
   display: flex;
   justify-content: center;
-  gap: 20px;
+  gap: 10px;
   align-items: center;
+}
+@media (min-width: 600px) {
+  body header .head div {
+    gap: 15px;
+  }
+}
+@media (min-width: 1000px) {
+  body header .head div {
+    gap: 20px;
+    font-size: larger;
+  }
 }
 body header .head div h1 {
   font-weight: bolder;
@@ -59,6 +70,7 @@ body header nav ul {
 }
 body header nav ul li {
   list-style: none;
+  font-weight: bold;
 }
 body header nav ul li a {
   text-decoration: none;

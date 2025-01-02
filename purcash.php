@@ -1,9 +1,8 @@
 <?php
-// include "./authentication.php";
+include "./authentication.php";
 require_once "vendor/autoload.php";
 
-$amount = 25;
-
+$amount = $_SESSION['total'];
 $stripe = new \Stripe\StripeClient("sk_test_51QQBF3JJSMhHB0CmVNfXq92Qa9YWeDQn7AwqNoRnVS6aI36G9U6L4T4xJCv2An5NrIUJI2BxgyW2dBVMdi6g7zm600IXh2lhlK");
 $payment_intent = $stripe->paymentIntents->create([
     'payment_method_types' => ['card'],
@@ -11,6 +10,7 @@ $payment_intent = $stripe->paymentIntents->create([
     'currency' => 'aed', 
 ]);
 // $sql = "SELECT * FORM orders WHERE USER_ID = ['auth_user']['user_id']";
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -21,35 +21,35 @@ $payment_intent = $stripe->paymentIntents->create([
     <title>Document</title>
 </head>
 <body>
-<header>
-      <div class="offer">free shipping on orders over 200 AED</div>
-      <div class="head">
-      <div><a href="./Profile.php">Dashboard</a></div>
-        <div><h1>BuRd</h1></div>
-        <div class="personals">
-          <a href="./signForms.php">Account</a>
-          <a href="./cart.php">Cart</a>
-        </div>
-      </div>
-      <nav>
-        <ul>
-          <li><a href="./index.php">Home</a></li>
-          <li><a href="./Products.php">Shop All</a></li>
-          <li><a href="./aboutUs.php">about us</a></li>
-          <li><a href="./ContactUs.php">contact us</a></li>
-        </ul>
-      </nav>
-    </header>
     <main>
+    <h1>Total Price: <?php echo $_SESSION['total'] ?></h1>
+    <?php
+    echo "<table border='1'>";
+    echo "<thead><tr><th>Name</th><th>Price ID</th><th>Price</th><th>Size</th><th>Count</th></tr></thead>";
+    echo "<tbody>";
+
+    // Loop through the order items in session and display them
+    foreach ($_SESSION['orderItems'] as $item) {
+        echo "<tr>";
+        echo "<td>" . htmlspecialchars($item['Name']) . "</td>";
+        echo "<td>" . htmlspecialchars($item['price_Id']) . "</td>";
+        echo "<td>" . htmlspecialchars($item['Price']) . "</td>";
+        echo "<td>" . htmlspecialchars($item['Size']) . "</td>";
+        echo "<td>" . htmlspecialchars($item['Count']) . "</td>";
+        echo "</tr>";
+    }
+
+    echo "</tbody>";
+    echo "</table>";
+    ?>
       <h1>Check Out</h1>
         <div class="purcacheForm">
             <input type="hidden" id="stripe-public-key" value="pk_test_51QQBF3JJSMhHB0CmJLlHnoTFjhZgkCGqtGCAlTcA26AUDac1H13KX224MtwW4c3jZjo7voFRESuTk7rxCoI6iDmD00clN2kSre">
             <input type="hidden" id="stripe-payment-intent" value="<?php echo $payment_intent->client_secret;?>">
-            <input type="name" id ="first-name" placeholder="First name">
-            <input type="name" id ="last-name" placeholder="Last name">
-            <input type="email" id="user-email" placeholder="Email">
-            <input type="text" id ="Address" placeholder="Address">
-            <input type="number" id="user-phone" placeholder="phone number">
+            <input type="name" id ="user-name" placeholder="your name" value="<?= $_SESSION['auth_user']['Fname']?>" disabled>
+            <input type="email" id="user-email" placeholder="Email" value="<?= $_SESSION['auth_user']['Email']?>" disabled>
+            <input type="text" id ="Address" placeholder="Address" value="<?= $_SESSION['auth_user']['Address']?>">
+            <input type="number" id="user-phone" placeholder="phone number" value="<?= $_SESSION['auth_user']['Phone']?>" disabled>
             <div id="stripe-card-element"></div>
             <button type="button" onclick="payViaStripe()">pay via stripe</button>
         </div>
@@ -58,36 +58,6 @@ $payment_intent = $stripe->paymentIntents->create([
 
         </div>
     </main>
-    <footer>
-      <div class="links">
-        <h1>BuRd</h1>
-      </div>
-      <div class="links">
-        <h3>Info</h3>
-        <div class="spans">
-          <span>Digital</span>
-          <span>Print</span>
-          <span>Tutorial</span>
-          <span>FAQ</span>
-        </div>
-      </div>
-      <div class="links">
-        <h3>connect</h3>
-        <div class="spans">
-          <span><a href="#">instgram</a></span>
-          <span><a href="#">Facebook</a></span>
-          <span><a href="#">tiktok</a></span>
-          <span><a href="#">contact</a></span>
-        </div>
-      </div>
-      <div class="links">
-        <h3>Pen Pals</h3>
-        <div class="spans">
-          <span><a href="#">instgram</a></span>
-          <span><a href="#">Facebook</a></span>
-        </div>
-      </div>
-    </footer>
     <script src="https://js.stripe.com/v3/"></script>
 <script type="module" src="./js/purcash.js"></script>
 <script>
@@ -101,9 +71,8 @@ function payViaStripe() {
             card: cardElement, // Make sure this is the card element you mounted
             billing_details: {
                 "email": document.getElementById("user-email").value,
-                "Fname": document.getElementById("first-name").value,
-                "Lname": document.getElementById("last-name").value,
-                "Address": document.getElementById("Address").value,
+                "name": document.getElementById("user-name").value,
+                "address": document.getElementById("Address").value,
                 "phone": document.getElementById("user-phone").value
             }
         }
@@ -114,6 +83,7 @@ function payViaStripe() {
             console.log(result.error,"y3m error");
         }
         else{
+          window.location.href = "orderMessage.php";
             console.log("the card has been verified successfully...",result.pa);
         }
     })

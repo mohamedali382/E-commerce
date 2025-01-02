@@ -53,7 +53,13 @@ if (isset($_POST['register'])) {
     if (mysqli_num_rows($check_email_query_run) > 0) {
         $_SESSION['status'] = "Email already exists";
         header("Location: signForms.php");
-    } else {
+    }
+    else if($Fname == NULL || $Email == NULL || $Phone == NULL || $Address == NULL || $Password == NULL)
+    {
+        $_SESSION['status'] = "All information are required";
+        header("Location: signForms.php");
+    }
+    else {
         // insert user
         $query = "INSERT INTO user (Fname,Email, Phone, Address) VALUES ('$Fname','$Email', '$Phone', '$Address')";
         $query_run = mysqli_query($connect, $query);

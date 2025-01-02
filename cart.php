@@ -9,7 +9,7 @@
   <body>
     <main>
       <section id="cartItems"></section>
-      <div class="totalPrice"><span>Total price: </span><span id="TotalP">$0.00</span></div>
+      <div class="totalPrice"><span>Total price: </span><span id="TotalP">0</span>$</div>
       <div class="buttons">
         <button id="close">Close</button>
         <button id="checkOut">check Out</button>

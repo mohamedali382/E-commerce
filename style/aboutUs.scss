@@ -1,10 +1,13 @@
-@use "./global_rules.scss" as *;
 $off-white: #f7f0eb;
 $beige: #f3e0d0;
 $dark-blue: #687ca0;
 $accent: #f5a570;
 $text-color: #342822;
-
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 main {
     margin: 0;
     padding: 0;

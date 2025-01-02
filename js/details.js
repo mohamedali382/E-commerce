@@ -19,7 +19,7 @@ const initApp = (products, ProSizes) => {
 
     // Add the event listener for price update on size selection
     document.getElementById('sizeSelector').addEventListener('change', () => {
-        updatePrice(idProduct, ProSizes, name, image);
+        updatePrice(idProduct, ProSizes);
     });
 
     detail.querySelector(".description").innerHTML = info.Description;
@@ -31,7 +31,7 @@ const initApp = (products, ProSizes) => {
         const selectedSize = document.getElementById('sizeSelector').value;
         const selectedItem = ProSizes.find(item => item.pro_id === idProduct && item.size === selectedSize);
         if (selectedItem) {
-            addToCart(idProduct, image, name, selectedItem.price, selectedItem.size);
+            addToCart(idProduct, image, name,selectedItem.id ,selectedItem.price, selectedItem.size);
         }
     });
 
@@ -65,7 +65,7 @@ function populateSizes(idProduct, productSize) {
     });
 }
 
-function updatePrice(idProduct, productSize, name, image) {
+function updatePrice(idProduct, productSize) {
     const selectedSize = document.getElementById('sizeSelector').value;
     const priceDisplay = document.getElementById('priceDisplay');
     const addCartButton = document.getElementById('addCart');
@@ -82,12 +82,13 @@ function updatePrice(idProduct, productSize, name, image) {
     }
 }
 
-const addToCart = (id, image, name, price, size) => {
+const addToCart = (id, image, name,priceId, price, size) => {
     let cart = getCart();
     let item = {
         Id: id,
         Image: image,
         Name: name,
+        price_Id: priceId,
         Price: price,
         Size: size,
         Count: 1,

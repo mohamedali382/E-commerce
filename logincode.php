@@ -8,19 +8,40 @@ if(isset($_POST["login-btn"]))
         $email =mysqli_real_escape_string($connect,$_POST['Email']);
         $password = mysqli_real_escape_string($connect,$_POST['Password']);
 
-        $login_query = "SELECT * FROM users_accounts WHERE Email = '$email' AND Password = '$password' LIMIT 1";
+        $login_query = "SELECT 
+            users_accounts.*, 
+            user.Fname, 
+            user.Address, 
+            user.Phone 
+        FROM 
+            users_accounts 
+        JOIN 
+            user 
+        ON 
+            users_accounts.Email = user.Email 
+        WHERE 
+            users_accounts.Email = '$email' 
+            AND users_accounts.Password = '$password' 
+        LIMIT 1";
         $login_query_run = mysqli_query($connect,$login_query);
+
+
 
         if(mysqli_num_rows($login_query_run) > 0)
         {
             $row = mysqli_fetch_array($login_query_run);
-            // echo $row['verify_status'];
+
             if($row['verify_status'] == "1")
             {
                 $_SESSION['authenticated'] = TRUE;
                 $_SESSION['auth_user'] = [
                     "Email" => $row['Email'],
+                    "Fname" => $row['Fname'],
+                    "Address" => $row['Address'],
+                    "Phone" => $row['Phone'],
                 ];
+
+
                 $sql = "SELECT * FROM orders WHERE USER_ID = ' " . $row["user_id"] . "'";
                 $result = $connect->query($sql);
 

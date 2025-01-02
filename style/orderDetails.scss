@@ -1,11 +1,14 @@
-@use './global_rules.scss' as *;
 $off-white: #f7f0eb;
 $beige: #f3e0d0;
 $dark-blue: #687ca0;
 $dark-brown: #342923;
 $light-pink: #f3d4cf;
 $orange: #f4a570;
-
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 main {
   font-family: 'Arial', sans-serif; /* Replace with the desired font */
   background-color: $off-white;

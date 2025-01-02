@@ -51,7 +51,7 @@ include "./connect.php";
             }
             ?>
         </div>
-            <form action="addCode.php" method="POST" enctype="multipart/form-data" id="form">
+            <form action="./backend/addCode.php" method="POST" enctype="multipart/form-data" id="form">
         <div class="headerFont">
             <h1>Add product</h1>
         </div>
