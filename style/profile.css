@@ -22,6 +22,9 @@ main {
 main .welcome_message {
   width: 70%;
   height: 50vh;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
   background: linear-gradient(135deg, #c0c7df, #f3e0d1);
   border-radius: 12px;
   padding: 25px;

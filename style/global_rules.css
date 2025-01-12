@@ -51,8 +51,21 @@ body header .head div h1 {
   font-weight: bolder;
 }
 body header .head div a {
+  display: flex;
+  gap: 5px;
   text-decoration: none;
   color: black;
+}
+body header .head div a span {
+  background-color: red;
+  color: white;
+  border-radius: 50%;
+  width: 20px; /* Set a fixed width */
+  height: 20px; /* Set a fixed height */
+  display: flex; /* Center the content */
+  align-items: center; /* Vertically center the content */
+  justify-content: center; /* Horizontally center the content */
+  font-size: 12px;
 }
 body header nav {
   width: 100%;

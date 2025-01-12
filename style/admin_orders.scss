@@ -1,0 +1,104 @@
+// Variables for theme colors
+$off-white: #f7f0eb;
+$beige: #f3e0d0;
+$dark-blue: #687ca0;
+$text-dark: #342923;
+$text-light: #ffffff;
+$accent-pink: #f3bccd;
+$accent-green: #868c70;
+
+// Global Styles
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: $off-white;
+  color: $text-dark;
+}
+
+h1 {
+  text-align: center;
+  margin: 20px 0;
+  color: $dark-blue;
+}
+
+// Table Styles
+table {
+  width: 90%;
+  margin: 20px auto;
+  border-collapse: collapse;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  background-color: $beige;
+}
+
+thead tr {
+  background-color: $dark-blue;
+  color: $text-light;
+}
+
+th, td {
+  padding: 10px;
+  text-align: center;
+  border: 1px solid $text-dark;
+}
+
+tbody tr:nth-child(even) {
+  background-color: $accent-pink;
+}
+
+tfoot td {
+  font-weight: bold;
+  background-color: $accent-green;
+  color: $text-light;
+}
+.dashboard-button-container {
+  text-align: center;
+  margin-top: 30px;
+}
+
+.dashboard-button {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #5f799e;
+  color: #fff;
+  text-decoration: none;
+  font-size: 16px;
+  border-radius: 5px;
+  transition: background-color 0.3s, transform 0.2s;
+  @media screen and (max-width: 768px) {
+      font-size: 14px;
+  }
+
+  &:hover {
+    background-color: #342822;
+    transform: scale(1.05);
+  }
+}
+// Responsive Design
+@media (max-width: 768px) {
+  table {
+    font-size: 14px;
+  }
+
+  th, td {
+    padding: 8px;
+  }
+
+  h1 {
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  table {
+    font-size: 12px;
+  }
+
+  th, td {
+    padding: 5px;
+  }
+
+  h1 {
+    font-size: 18px;
+  }
+}

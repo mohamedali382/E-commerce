@@ -1,0 +1,156 @@
+body {
+  font-family: "Arial", sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f6f0e5;
+  color: #342822;
+}
+
+.order-page {
+  max-width: 1200px;
+  margin: auto;
+  padding: 20px;
+}
+
+.list {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: transform 0.2s ease;
+}
+.list:hover {
+  transform: translateY(-5px);
+}
+
+.product-image img {
+  width: 150px;
+  height: 150px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 8px;
+  margin: 10px;
+}
+
+.product-details {
+  flex: 1;
+  padding: 10px 20px;
+}
+.product-details h3 {
+  margin: 5px 0;
+}
+.product-details .product-name {
+  font-size: 18px;
+  font-weight: bold;
+}
+.product-details .product-size,
+.product-details .product-price,
+.product-details .product-count {
+  font-size: 16px;
+  color: #5f799e;
+}
+
+.summary {
+  text-align: right;
+}
+.summary .total-price,
+.summary .order-status {
+  font-size: 18px;
+  margin: 10px 0;
+}
+
+.update-status-form {
+  display: flex;
+  justify-content: flex-end;
+}
+.update-status-form .btn {
+  background-color: #5f799e;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+.update-status-form .btn:hover {
+  background-color: #342822;
+}
+
+.success-message,
+.error-message {
+  text-align: center;
+  margin-top: 20px;
+  padding: 10px;
+  border-radius: 5px;
+}
+.success-message.success-message,
+.error-message.success-message {
+  background-color: #d4edda;
+  color: #155724;
+}
+.success-message.error-message,
+.error-message.error-message {
+  background-color: #f8d7da;
+  color: #721c24;
+}
+
+.info {
+  text-align: center;
+}
+
+form {
+  height: auto;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+form button[name=sent] {
+  height: 40px;
+  width: 100px;
+  background-color: #5f799e;
+  color: #fff;
+  text-decoration: none;
+  font-size: 16px;
+  border-radius: 5px;
+  transition: background-color 0.3s, transform 0.2s;
+}
+@media screen and (max-width: 768px) {
+  form button[name=sent] {
+    font-size: 14px;
+  }
+}
+form button[name=sent]:hover {
+  background-color: #342822;
+  transform: scale(1.05);
+}
+
+a {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+  text-decoration: none;
+}
+a button {
+  width: 100px;
+  height: 40px;
+  background-color: #5f799e;
+  color: #fff;
+  text-decoration: none;
+  font-size: 16px;
+  border-radius: 5px;
+  transition: background-color 0.3s, transform 0.2s;
+}
+@media screen and (max-width: 768px) {
+  a button {
+    font-size: 14px;
+  }
+}
+a button:hover {
+  background-color: #342822;
+  transform: scale(1.05);
+}/*# sourceMappingURL=admin_Ord_details.css.map */

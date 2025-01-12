@@ -1,7 +1,7 @@
 <?php
 include "./authentication.php";
 require_once "vendor/autoload.php";
-
+$User_ID = $_SESSION['auth_user']['User_ID'];
 $amount = $_SESSION['total'];
 $stripe = new \Stripe\StripeClient("sk_test_51QQBF3JJSMhHB0CmVNfXq92Qa9YWeDQn7AwqNoRnVS6aI36G9U6L4T4xJCv2An5NrIUJI2BxgyW2dBVMdi6g7zm600IXh2lhlK");
 $payment_intent = $stripe->paymentIntents->create([
@@ -9,7 +9,8 @@ $payment_intent = $stripe->paymentIntents->create([
     'amount' => round($amount) * 100,
     'currency' => 'aed', 
 ]);
-// $sql = "SELECT * FORM orders WHERE USER_ID = ['auth_user']['user_id']";
+
+
 
 ?>
 <!DOCTYPE html>
@@ -22,26 +23,6 @@ $payment_intent = $stripe->paymentIntents->create([
 </head>
 <body>
     <main>
-    <h1>Total Price: <?php echo $_SESSION['total'] ?></h1>
-    <?php
-    echo "<table border='1'>";
-    echo "<thead><tr><th>Name</th><th>Price ID</th><th>Price</th><th>Size</th><th>Count</th></tr></thead>";
-    echo "<tbody>";
-
-    // Loop through the order items in session and display them
-    foreach ($_SESSION['orderItems'] as $item) {
-        echo "<tr>";
-        echo "<td>" . htmlspecialchars($item['Name']) . "</td>";
-        echo "<td>" . htmlspecialchars($item['price_Id']) . "</td>";
-        echo "<td>" . htmlspecialchars($item['Price']) . "</td>";
-        echo "<td>" . htmlspecialchars($item['Size']) . "</td>";
-        echo "<td>" . htmlspecialchars($item['Count']) . "</td>";
-        echo "</tr>";
-    }
-
-    echo "</tbody>";
-    echo "</table>";
-    ?>
       <h1>Check Out</h1>
         <div class="purcacheForm">
             <input type="hidden" id="stripe-public-key" value="pk_test_51QQBF3JJSMhHB0CmJLlHnoTFjhZgkCGqtGCAlTcA26AUDac1H13KX224MtwW4c3jZjo7voFRESuTk7rxCoI6iDmD00clN2kSre">
@@ -83,7 +64,21 @@ function payViaStripe() {
             console.log(result.error,"y3m error");
         }
         else{
-          window.location.href = "orderMessage.php";
+            fetch("orderProcessing.php", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ paymentId: result.paymentIntent.id }),
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    window.location.href = "orderMessage.php"; // Redirect to the confirmation page
+                } else {
+                    console.error("Error processing order:", data.message);
+                }
+            })
+            .catch(error => console.error("Error:", error));
+            window.location.href = "orderMessage.php";
             console.log("the card has been verified successfully...",result.pa);
         }
     })

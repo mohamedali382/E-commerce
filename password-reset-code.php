@@ -14,7 +14,7 @@ function send_password_reset($get_name, $get_email, $update_token)
     $mail->SMTPAuth   = true;
     $mail->Host       = 'smtp.gmail.com';
     $mail->Username   = 'mo392213@gmail.com';
-    $mail->Password   = 'lmsziiazdgurcpxn'; // get email password from video
+    $mail->Password   = 'ciostzbskeptgxrj'; // get email password from video
     $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
     $mail->Port       = 465;
 
@@ -25,11 +25,104 @@ function send_password_reset($get_name, $get_email, $update_token)
     $mail->Subject = 'Password Reset Request';
 
     $Email_template = "
-    <h2>Password Reset</h2>
-    <h5>Click on this link to reset your password</h5>
-    <br/><br/>
-    <a href='http://localhost/Osman_brand/passwordChange.php?token=$update_token&Email=$get_email'> Click here </a>
-    ";
+        <!DOCTYPE html>
+    <html lang='en'>
+    <head>
+        <meta charset='UTF-8'>
+        <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+        <title>Email Verification</title>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                margin: 0;
+                padding: 0;
+                background-color: #f7f0eb;
+                color: #342923;
+                line-height: 1.6;
+            }
+            .email-container {
+                max-width: 600px;
+                margin: 30px auto;
+                background-color: #ffffff;
+                border-radius: 8px;
+                box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+                overflow: hidden;
+            }
+            .email-header {
+                background-color: #687ca0;
+                color: #ffffff;
+                padding: 20px;
+                text-align: center;
+            }
+            .email-header h1 {
+                margin: 0;
+                font-size: 24px;
+            }
+            .email-body {
+                padding: 20px;
+            }
+            .email-body h2 {
+                font-size: 20px;
+                color: #342923;
+            }
+            .email-body h5 {
+                font-size: 16px;
+                margin-bottom: 20px;
+            }
+            .verify-btn {
+                display: inline-block;
+                background-color: #ffa063;
+                color: #ffffff;
+                text-decoration: none;
+                padding: 12px 20px;
+                border-radius: 5px;
+                font-size: 16px;
+                font-weight: bold;
+                text-align: center;
+            }
+            .verify-btn:hover {
+                background-color: #e58b53;
+            }
+            .email-footer {
+                background-color: #f3e0d0;
+                text-align: center;
+                padding: 15px;
+                font-size: 14px;
+                color: #555;
+            }
+            .email-footer a {
+                color: #687ca0;
+                text-decoration: none;
+            }
+        </style>
+    </head>
+    <body>
+        <div class='email-container'>
+            <!-- Header -->
+            <div class='email-header'>
+                <h1>Brud Store</h1>
+            </div>
+    
+            <!-- Body -->
+            <div class='email-body'>
+                <h2>Welcome to Brud Store!</h2>
+                <h5>We're excited to have you on board. To complete your request to check your password by clicking the link below:</h5>
+                <a href='http://localhost/Osman_brand/passwordChange.php?token=$update_token&Email=$get_email' class='verify-btn'>Reset your Password</a>
+                <p>If the button doesn't work, you can copy and paste the following link into your browser:</p>
+            </div>
+    
+            <!-- Footer -->
+            <div class='email-footer'>
+                <p>Need help? <a href='http://localhost/Osman_brand/contact-us'>Contact Support</a></p>
+                <p>Brud Store &copy; 2025</p>
+            </div>
+        </div>
+    </body>
+    </html>";
+
+
+
+
     $mail->Body = $Email_template;
 
     $mail->send();

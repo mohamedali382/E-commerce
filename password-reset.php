@@ -25,6 +25,7 @@ include "./connect.php";
                 <input type="email" name="Email" placeholder="Email">
                 <button type="submit" name="PasswordResetLink">Submit</button>
             </form>
+            <a href="./signForms.php">back</a>
         </div>
     </div>
   

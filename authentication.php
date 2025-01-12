@@ -7,4 +7,5 @@ if (!isset($_SESSION['authenticated']))
     header('Location: signForms.php');
     exit(0);
 }
+
 ?>

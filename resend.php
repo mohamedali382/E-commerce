@@ -1,5 +1,5 @@
 <?php
-include "./backend/connect.php";
+include "./connect.php";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -20,14 +20,14 @@ include "./backend/connect.php";
             ?>
         </div>
         <div class="forms-modify">
-            <form action="./backend/resendcode.php" method="POST">
+            <form action="./resendcode.php" method="POST">
                 <h1>field your email address</h1>
                 <input type="email" name="Email" placeholder="Email">
                 <button type="submit" name="resend">Submit</button>
             </form>
+            <a href="./signForms.php">back</a>
             </div>
     </div>
     <script type="module" src="./js/forms.js"></script>
-    <script src="./js/style.js"></script>
 </body>
 </html>

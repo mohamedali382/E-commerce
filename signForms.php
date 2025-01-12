@@ -1,5 +1,4 @@
 <?php
-include "./connect.php";
 if (isset($_SESSION['authenticated']))
 {
     $_SESSION['status'] = "you are already logged in";
@@ -7,6 +6,7 @@ if (isset($_SESSION['authenticated']))
     exit(0);
 }
 include './nav.php';
+include './connect.php';
 ?>
 
 <!DOCTYPE html>

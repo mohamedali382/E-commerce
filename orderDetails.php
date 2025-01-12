@@ -1,5 +1,6 @@
 <?php
 include './authentication.php';
+include './nav.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -10,9 +11,6 @@ include './authentication.php';
     <title>Order details</title>
 </head>
 <body>
-<?php 
-include './nav.php';
-?>
     <main>
         <section>
             <div id="details">

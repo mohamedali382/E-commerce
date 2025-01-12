@@ -46,5 +46,23 @@
         "pro_id": "16",
         "size": "121-2",
         "price": "3233.00"
+    },
+    {
+        "id": "17",
+        "pro_id": "17",
+        "size": "small",
+        "price": "200.00"
+    },
+    {
+        "id": "19",
+        "pro_id": "27",
+        "size": "small",
+        "price": "100.00"
+    },
+    {
+        "id": "20",
+        "pro_id": "27",
+        "size": "large",
+        "price": "500.00"
     }
 ]

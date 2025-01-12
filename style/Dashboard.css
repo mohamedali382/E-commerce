@@ -1,0 +1,215 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #5F799E;
+  padding: 20px;
+}
+
+header {
+  width: 100%;
+  height: 10vh;
+}
+header h1 {
+  font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+}
+@media (max-width: 550px) {
+  header h1 {
+    text-align: center;
+  }
+}
+
+main {
+  width: 100%;
+  height: 120vh;
+  display: grid;
+  grid-template-rows: 3fr 5fr;
+  gap: 10px;
+}
+@media (max-width: 950px) {
+  main {
+    grid-template-rows: 4fr 5fr;
+  }
+}
+main .links {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+@media (max-width: 550px) {
+  main .links {
+    flex-direction: column;
+    gap: 20px;
+  }
+}
+main .links a {
+  width: 20%;
+  text-decoration: none;
+  color: #342923;
+}
+@media (max-width: 550px) {
+  main .links a {
+    width: 70%;
+  }
+}
+main .links a .adminPages {
+  width: 100%;
+  height: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+main .links a .adminPages:hover {
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+  transform: translateY(-5px);
+}
+@media (max-width: 950px) {
+  main .links a .adminPages {
+    height: 200px;
+  }
+}
+main .links a .adminPages .photo {
+  min-width: 100px;
+  min-height: 100px;
+  border-radius: 50%;
+  background-color: #5F799E;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 4px solid #ffffff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+main .links a .adminPages .photo img {
+  width: 30px;
+  height: 30px;
+}
+main .activity {
+  background-color: #ffffff;
+  width: 95%;
+  position: relative;
+  left: 2.5%;
+  display: grid;
+  grid-template-rows: 1fr 11fr;
+  gap: 10px;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+main .activity .header-board {
+  width: 100%;
+  height: 100%;
+}
+main .activity .header-board h1, main .activity .header-board p {
+  margin-left: 10px;
+}
+@media (max-width: 550px) {
+  main .activity .header-board {
+    text-align: center;
+  }
+}
+main .activity .board {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  border-top: 1px solid rgb(183, 182, 182);
+}
+@media (max-width: 950px) {
+  main .activity .board {
+    grid-template-columns: none;
+    grid-template-rows: 1fr 1fr;
+  }
+}
+main .activity .board .notes {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+@media (max-width: 950px) {
+  main .activity .board .notes {
+    align-items: center;
+  }
+}
+main .activity .board .notes .note {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  padding: 10px;
+  border-radius: 10px;
+  position: relative;
+  width: 90%;
+  max-width: 600px;
+}
+main .activity .board .notes .note h2 {
+  font-size: 1.4em;
+}
+main .activity .board .notes .note p {
+  font-size: 1em;
+  margin: 0;
+}
+main .activity .board .notes .note::before {
+  content: "";
+  position: absolute;
+  left: -20px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+}
+main .activity .board .notes .note.red {
+  background-color: #edeaeb;
+  border-left: 5px solid red;
+}
+main .activity .board .notes .note.red::before {
+  background-color: red;
+}
+main .activity .board .notes .note.blue {
+  background-color: #edeaeb;
+  border-left: 5px solid blue;
+}
+main .activity .board .notes .note.blue::before {
+  background-color: blue;
+}
+main .activity .board .notes .note.green {
+  background-color: #edeaeb;
+  border-left: 5px solid green;
+}
+main .activity .board .notes .note.green::before {
+  background-color: green;
+}
+main .activity .board .graph {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-left: 1px solid rgb(183, 182, 182);
+}
+@media (max-width: 950px) {
+  main .activity .board .graph {
+    border-top: 1px solid rgb(183, 182, 182);
+    border-left: none;
+  }
+}
+main .activity .board .graph canvas {
+  width: 100%;
+  height: 100%;
+}/*# sourceMappingURL=Dashboard.css.map */

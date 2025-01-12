@@ -9,6 +9,15 @@ if (isset($_POST['add'])) {
         $fileSize = $_FILES['pro_image']['size'];
         $fileType = $_FILES['pro_image']['type'];
 
+
+        echo '
+        <h1>$fileTmpPath: '.$fileTmpPath.'</h1>
+        <h1>$fileName: '.$$fileName.'</h1>
+        <h1>$fileSize: '.$fileSize.'</h1>
+        <h1>$fileType: '.$fileType.'</h1>
+        
+        ';
+
         // Read the file as binary data
         $imageData = file_get_contents($fileTmpPath);
 
@@ -42,6 +51,7 @@ if (isset($_POST['add'])) {
             if ($stmt->affected_rows > 0) {
                 // Get the product ID
                 $pro_id = $connect->insert_id;
+                
                 if (is_array($_POST['size']) && is_array($_POST['price']) && count($_POST['size']) == count($_POST['price'])) {
                     $query2 = "INSERT INTO products_sizes (pro_id, size, price) VALUES (?, ?, ?)";
                     $stmt2 = $connect->prepare($query2);

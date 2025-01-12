@@ -98,15 +98,23 @@ main .pre-section-one .categories .market .shop-link {
     margin-left: 10%;
   }
 }
-main .pre-section-one .categories .market .shop-link div {
+main .pre-section-one .categories .market .shop-link a {
   width: 50%;
   height: 20%;
+  text-decoration: none;
+}
+main .pre-section-one .categories .market .shop-link a div {
+  width: 100%;
+  height: 100%;
   background-color: #e81f1f;
   display: flex;
   color: #e7e1d6;
   justify-content: center;
   align-items: center;
   border-radius: 20px;
+}
+main .pre-section-one .categories .market .shop-link a .pending {
+  text-decoration: line-through;
 }
 main .pre-section-one .categories .market p {
   font-size: 1em;

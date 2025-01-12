@@ -5,6 +5,8 @@ $password="";
 $database="osman";
 
 $connect=mysqli_connect($localhost,$username,$password,$database);
-session_start();
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();  // Start the session only if it's not started yet
+}
 
 ?>

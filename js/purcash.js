@@ -1,9 +1,7 @@
 import { getCart } from "./cart.js";
-let totalPrice = 0;
-
 let cart = getCart();
 const items = document.getElementById('requiredOrder');
-
+let totalPrice = 0
 console.log(cart);
 cart.forEach((element) => {
 
@@ -27,10 +25,8 @@ cart.forEach((element) => {
   let price = element.Price * element.Count;
   let itemPrice = document.createElement("p");
   itemPrice.textContent = `Price: $${price}`;
-
   pro.append(itemImage, itemName, itemCount,itemPrice, itemSize);
-
-  totalPrice = totalPrice + (element.Count * price);
+  totalPrice  += (price);
   items.appendChild(pro);
 })
 let tot = document.createElement("div")
@@ -40,19 +36,7 @@ items.appendChild(tot)
 /********************************* */
 
 // Create a JSON object
-const jsonData = JSON.stringify({ 'total': totalPrice, 'orderItems': cart });
 
-fetch("dataTransfer.php", {
-    method: "POST",
-    headers: {
-        "Content-Type": "application/json"
-    },
-    body: jsonData
-})
-  
-.then(response => response.text())  // Handle the response
-.then(result => console.log(result))  // Print the response in the console
-.catch(error => console.error("Error:", error));
 
 /********************************************* */
 console.log("total price:", totalPrice);

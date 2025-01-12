@@ -1,0 +1,90 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f7f0eb;
+  color: #342923;
+}
+
+h1 {
+  text-align: center;
+  margin: 20px 0;
+  color: #687ca0;
+}
+
+table {
+  width: 90%;
+  margin: 20px auto;
+  border-collapse: collapse;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  background-color: #f3e0d0;
+}
+
+thead tr {
+  background-color: #687ca0;
+  color: #ffffff;
+}
+
+th, td {
+  padding: 10px;
+  text-align: center;
+  border: 1px solid #342923;
+}
+
+tbody tr:nth-child(even) {
+  background-color: #f3bccd;
+}
+
+tfoot td {
+  font-weight: bold;
+  background-color: #868c70;
+  color: #ffffff;
+}
+
+.dashboard-button-container {
+  text-align: center;
+  margin-top: 30px;
+}
+
+.dashboard-button {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #5f799e;
+  color: #fff;
+  text-decoration: none;
+  font-size: 16px;
+  border-radius: 5px;
+  transition: background-color 0.3s, transform 0.2s;
+}
+@media screen and (max-width: 768px) {
+  .dashboard-button {
+    font-size: 14px;
+  }
+}
+.dashboard-button:hover {
+  background-color: #342822;
+  transform: scale(1.05);
+}
+
+@media (max-width: 768px) {
+  table {
+    font-size: 14px;
+  }
+  th, td {
+    padding: 8px;
+  }
+  h1 {
+    font-size: 20px;
+  }
+}
+@media (max-width: 480px) {
+  table {
+    font-size: 12px;
+  }
+  th, td {
+    padding: 5px;
+  }
+  h1 {
+    font-size: 18px;
+  }
+}/*# sourceMappingURL=admin_orders.css.map */

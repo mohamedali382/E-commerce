@@ -1,3 +1,8 @@
+<?php
+if (session_status() == PHP_SESSION_NONE) {
+  session_start();
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,18 +15,18 @@
 <header>
       <div class="offer">free shipping on orders over 200 AED</div>
       <div class="head">
-      <div><a href="./profile.php">Account</a></div>
+      <div><a href="#">Account</a></div>
         <div><h1>BuRd</h1></div>
         <div class="personals">
         <?php
-          if (isset($_SESSION['authenticated']) && $_SESSION['authenticated']) {
-            echo '<a href="./Profile.php">Dashboard</a>';
-          }
-          else{
+          if (!isset($_SESSION['authenticated'])) {
             echo '<a href="./signForms.php">Sign in</a>';
           }
+          else{
+            echo '<a href="./Profile.php">Profile</a>';
+          }
         ?>
-          <a href="./cart.php">Cart</a>
+          <a href="./cart.php">Cart <span id="Cart_counter"></span></a>
         </div>
       </div>
       <nav>
@@ -33,5 +38,6 @@
         </ul>
       </nav>
     </header>
+    <script type="module" src="./js/counter.js"></script>
 </body>
 </html>

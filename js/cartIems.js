@@ -89,8 +89,20 @@ checkOut.addEventListener("click", () => {
     message.textContent = "Your cart is empty";
     
   } else {
+    const jsonData = JSON.stringify({ 'total': totalPrice, 'orderItems': cart });
+
+fetch("dataTransfer.php", {
+    method: "POST",
+    headers: {
+        "Content-Type": "application/json"
+    },
+    body: jsonData
+})
+  
+.then(response => response.text())  // Handle the response
+.then(result => console.log(result))  // Print the response in the console
+.catch(error => console.error("Error:", error));
     window.location.href = "purcash.php";
+
   }
 });
-
-export {totalPrice};

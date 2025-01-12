@@ -39,12 +39,26 @@ header {
               gap: 20px;
               font-size: larger;
             }
+
             h1{
                 font-weight: bolder;
             }
-            a{
+            a{    
+              display: flex;
+                  gap: 5px;
                 text-decoration: none;
                 color: black;
+                span{
+                  background-color: red;
+                  color: white;
+                  border-radius: 50%;
+                  width: 20px; /* Set a fixed width */
+                  height: 20px; /* Set a fixed height */
+                  display: flex; /* Center the content */
+                  align-items: center; /* Vertically center the content */
+                  justify-content: center; /* Horizontally center the content */
+                  font-size: 12px; 
+                }
             }
         }
     }
