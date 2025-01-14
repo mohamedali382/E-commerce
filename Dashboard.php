@@ -61,7 +61,7 @@ $row['FirstName'], 'message_lname' => $row['LastName'], ]; } } ?>
             <div class="photo">
               <img src="./img/message-square-list-svgrepo-com.svg" alt="" />
             </div>
-            <h2>Add Product</h2>
+            <h2>Messages</h2>
           </div></a>
       </section>
       <section class="activity">

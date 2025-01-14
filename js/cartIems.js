@@ -99,10 +99,11 @@ fetch("dataTransfer.php", {
     body: jsonData
 })
   
-.then(response => response.text())  // Handle the response
-.then(result => console.log(result))  // Print the response in the console
+.then(response => response.text())  
+.then(result => console.log(result))
+.then(() => {
+  window.location.href = "purcash.php";
+})
 .catch(error => console.error("Error:", error));
-    window.location.href = "purcash.php";
-
   }
 });
