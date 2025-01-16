@@ -108,7 +108,7 @@ form {
   justify-content: center;
   gap: 10px;
 }
-form button[name=sent] {
+form button[name=sent], form button[name=delivered] {
   height: 40px;
   width: 100px;
   background-color: #5f799e;
@@ -119,11 +119,11 @@ form button[name=sent] {
   transition: background-color 0.3s, transform 0.2s;
 }
 @media screen and (max-width: 768px) {
-  form button[name=sent] {
+  form button[name=sent], form button[name=delivered] {
     font-size: 14px;
   }
 }
-form button[name=sent]:hover {
+form button[name=sent]:hover, form button[name=delivered]:hover {
   background-color: #342822;
   transform: scale(1.05);
 }
@@ -133,24 +133,4 @@ a {
   display: flex;
   justify-content: center;
   margin-top: 10px;
-  text-decoration: none;
-}
-a button {
-  width: 100px;
-  height: 40px;
-  background-color: #5f799e;
-  color: #fff;
-  text-decoration: none;
-  font-size: 16px;
-  border-radius: 5px;
-  transition: background-color 0.3s, transform 0.2s;
-}
-@media screen and (max-width: 768px) {
-  a button {
-    font-size: 14px;
-  }
-}
-a button:hover {
-  background-color: #342822;
-  transform: scale(1.05);
 }/*# sourceMappingURL=admin_Ord_details.css.map */

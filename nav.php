@@ -15,7 +15,7 @@ if (session_status() == PHP_SESSION_NONE) {
 <header>
       <div class="offer">free shipping on orders over 200 AED</div>
       <div class="head">
-      <div><a href="#">Account</a></div>
+      <div><a href="./tracking_order.php">tracking order</a></div>
         <div><h1>BuRd</h1></div>
         <div class="personals">
         <?php

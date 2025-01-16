@@ -1,5 +1,5 @@
 <?php
-include './authentication.php';
+include './connect.php';
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
@@ -10,24 +10,50 @@ header('Content-Type: application/json');
 // Decode the incoming JSON data
 $data = json_decode(file_get_contents("php://input"), true);
 
-if (isset($data['paymentId'])) {
-    $Email = $_SESSION['auth_user']['Email'];
-    $User_ID = $_SESSION['auth_user']['User_ID'];
+if (isset($data['paymentId'], $data['email'], $data['name'], $data['address'], $data['phone'])) {
+    $Email = $data['email'];
+    $Fname = $data['name'];
+    $Address = $data['address'];
+    $Phone = $data['phone'];
+
     $amount = $_SESSION['total'];
+    $User_ID = "";
     $dateTime = new DateTime();
     $formattedDate = $dateTime->format('Y-m-d H:i:s');
 
-$query = "INSERT INTO orders (Order_ID,USER_ID, Total_Price, Time) VALUES (NULL,'$User_ID', '$amount', '$formattedDate')";
-$query_run = mysqli_query($connect, $query);
-if ($query_run) {
-    $orderID = $connect->insert_id;
-    foreach ($_SESSION['orderItems'] as $item) {
-        $Id = $item['Id'];
-        $Price_ID = $item['price_Id'];
-        $count = $item['Count'];
-        $query2 = "INSERT INTO order_items (Ord_ID, product_id, price_Id, count) VALUES ('$orderID', '$Id', '$Price_ID','$count')";
-        $query_run2 = mysqli_query($connect, $query2);
+    $check = 0;
+
+    $check_user = "SELECT * FROM user WHERE Email = ".$Email."";
+    $check_user_run = mysqli_query($connect,$check_user);
+    if(mysqli_num_rows($check_user_run) > 0)
+    {
+        $User_data = mysqli_fetch_assoc($check_user_run);
+        $User_ID = $User_data['ID'];
+        $check = 1;
     }
+    else{
+        $query_user = "INSERT INTO user (ID,Fname, Email,Phone,Address) VALUES (NULL,'$Fname','$Email','$Phone','$Address')";
+        $query_user_run = mysqli_query($connect,$query_user);
+    }
+
+    if($query_user_run || $check == 1)
+    {
+        if ($check != 1)
+        {
+        $User_ID = mysqli_insert_id($connect);
+        }
+        $query = "INSERT INTO orders (Order_ID,USER_ID, Total_Price, Time) VALUES (NULL,'$User_ID', '$amount', '$formattedDate')";
+        $query_run = mysqli_query($connect, $query);
+        if ($query_run) {
+            $orderID = $connect->insert_id;
+            foreach ($_SESSION['orderItems'] as $item) {
+                $Id = $item['Id'];
+                $Price_ID = $item['price_Id'];
+                $count = $item['Count'];
+                $query2 = "INSERT INTO order_items (Ord_ID, product_id, price_Id, count) VALUES ('$orderID', '$Id', '$Price_ID','$count')";
+                $query_run2 = mysqli_query($connect, $query2);
+            }
+}
 }
 
 
@@ -158,3 +184,4 @@ if ($query_run) {
     echo " ";
 }
 ?>
+

@@ -12,7 +12,10 @@
       <div class="totalPrice"><span>Total price: </span><span id="TotalP">0</span>$</div>
       <div class="buttons">
         <button id="close">Close</button>
+        <div class="payments">
         <button id="checkOut">check Out</button>
+        <button id="guest">continue as a guest</button>
+        </div>
       </div>
       <div class="message" id="message"></div>
     </main>

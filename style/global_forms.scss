@@ -42,7 +42,7 @@
             text-align: center;
         }
 
-        input[type="email"] {
+        input[type="email"],input[type="number"] {
             width: 100%;
             padding: 10px;
             margin-bottom: 15px;
@@ -73,5 +73,8 @@
                 background-color: #2980b9; // Darken color on hover
             }
         }
+    }
+    .status{
+        color: rgb(30, 18, 18);
     }
 }

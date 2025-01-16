@@ -126,7 +126,7 @@ main {
   justify-content: space-between;
 }
 .buttons .closeButton,
-.buttons #checkOut {
+.buttons button {
   background-color: #5f799e;
   color: white;
   padding: 10px 20px;
@@ -136,7 +136,7 @@ main {
   transition: background-color 0.3s;
 }
 .buttons .closeButton:hover,
-.buttons #checkOut:hover {
+.buttons button:hover {
   background-color: #ffa063;
 }
 .buttons #checkOut {

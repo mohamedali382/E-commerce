@@ -5,7 +5,7 @@ include "./connect.php";
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="./style/resetPass.css">
+    <link rel="stylesheet" href="./style/global_forms.css">
     <title>join-us</title>
 </head>
 <body>

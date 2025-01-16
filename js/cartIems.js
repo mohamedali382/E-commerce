@@ -1,6 +1,7 @@
 import { getCart, setCart } from "./cart.js";
 let cart = getCart();
 const checkOut = document.getElementById("checkOut");
+const guest = document.getElementById("guest");
 const Close = document.getElementById("close");
 const message = document.getElementById('message');
 const tp = document.getElementById("TotalP");
@@ -103,6 +104,31 @@ fetch("dataTransfer.php", {
 .then(result => console.log(result))
 .then(() => {
   window.location.href = "purcash.php";
+})
+.catch(error => console.error("Error:", error));
+  }
+});
+
+guest.addEventListener("click", () => {
+  if (cart.length === 0) {
+    
+    message.textContent = "Your cart is empty";
+    
+  } else {
+    const jsonData = JSON.stringify({ 'total': totalPrice, 'orderItems': cart });
+
+fetch("dataTransfer.php", {
+    method: "POST",
+    headers: {
+        "Content-Type": "application/json"
+    },
+    body: jsonData
+})
+  
+.then(response => response.text())  
+.then(result => console.log(result))
+.then(() => {
+  window.location.href = "purcash_guest.php";
 })
 .catch(error => console.error("Error:", error));
   }
