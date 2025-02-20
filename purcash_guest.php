@@ -44,6 +44,7 @@ $payment_intent = $stripe->paymentIntents->create([
   var stripe = null;
 var cardElement = null;
 const stripePublicKey = document.getElementById("stripe-public-key").value;
+
 function payViaStripe() {
     // Get input values
     const name = document.getElementById("user-name").value.trim();
@@ -52,22 +53,8 @@ function payViaStripe() {
     const phone = document.getElementById("user-phone").value.trim();
     const stripePaymentIntent = document.getElementById("stripe-payment-intent").value;
 
-    // Validation
-    if (!name || !email || !address || !phone) {
-        
-        return;
-    }
+    // Construct billingDetails object
 
-    // Email format validation
-    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailPattern.test(email)) {
-        return;
-    }
-
-    // Phone number validation (basic example, modify as needed)
-    if (!/^\d+$/.test(phone)) {
-        return;
-    }
     stripe.confirmCardPayment(stripePaymentIntent, {
         payment_method: {
             card: cardElement, // Make sure this is the card element you mounted
@@ -79,6 +66,7 @@ function payViaStripe() {
             }
         }
     })
+
     .then(function(result){
         if(result.error)
         {
@@ -87,32 +75,47 @@ function payViaStripe() {
         else{
             const billingDetails = {
             paymentId: result.paymentIntent.id,
-            email: document.getElementById("user-email").value,
-            name: document.getElementById("user-name").value,
-            address: document.getElementById("Address").value,
-            phone: document.getElementById("user-phone").value
+            email: email,
+            name: name,
+            address: address,
+            phone: phone
         };
+            // Debug: Log the data being sent
+    console.log("Sending data:", billingDetails);
 
-        fetch("orderProcessing_guest.php", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(billingDetails)
-        })
-            .then(response => response.json())
-            .then(data => {
-                if (data.success) {
-                    console.log(billingDetails);
-                    // window.location.href = "orderMessage.php"; // Redirect to the confirmation page
-                } else {
-                    console.error("Error processing order:", data.message);
-                }
-            })
-            .catch(error => console.error("Error:", error));
-            // window.location.href = "orderMessage.php";
-            console.log(billingDetails);
-            console.log("the card has been verified successfully...",result.pa);
+// Send data to the backend
+fetch("orderProcessing_guest.php", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({paymentId: result.paymentIntent.id,
+        email: email,
+            name: name,
+            address: address,
+            phone: phone})
+})
+    .then(response => {
+        if (!response.ok) {
+            throw new Error("Network response was not ok");
+        }
+        return response.json();
+    })
+    .then(data => {
+        if (data.success) {
+            console.log("Order processed successfully:", data);
+        } else {
+            console.error("Error processing order:", data.message);
         }
     })
+    .catch(error => {
+        console.error("Error:", error);
+    });
+    window.location.href = "orderMessage.php";
+    console.log("the card has been verified successfully...",result.pa);
+        }
+    }
+    )
+
+
 }
 
 function confirmPayment(paymentId){

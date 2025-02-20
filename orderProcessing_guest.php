@@ -7,7 +7,7 @@ require 'vendor/autoload.php';
 
 header('Content-Type: application/json');
 
-// Decode the incoming JSON data
+// Read JSON input
 $data = json_decode(file_get_contents("php://input"), true);
 
 if (isset($data['paymentId'], $data['email'], $data['name'], $data['address'], $data['phone'])) {
@@ -15,46 +15,64 @@ if (isset($data['paymentId'], $data['email'], $data['name'], $data['address'], $
     $Fname = $data['name'];
     $Address = $data['address'];
     $Phone = $data['phone'];
+    $amount = $_SESSION['total'] ?? 0;
 
-    $amount = $_SESSION['total'];
     $User_ID = "";
-    $dateTime = new DateTime();
-    $formattedDate = $dateTime->format('Y-m-d H:i:s');
-
     $check = 0;
 
-    $check_user = "SELECT * FROM user WHERE Email = ".$Email."";
-    $check_user_run = mysqli_query($connect,$check_user);
-    if(mysqli_num_rows($check_user_run) > 0)
-    {
-        $User_data = mysqli_fetch_assoc($check_user_run);
+    // Check if user exists
+    $stmt = $connect->prepare("SELECT * FROM user WHERE Email = ?");
+    $stmt->bind_param("s", $Email);
+    $stmt->execute();
+    $result = $stmt->get_result();
+
+    if ($result->num_rows > 0) {
+        $User_data = $result->fetch_assoc();
         $User_ID = $User_data['ID'];
         $check = 1;
-    }
-    else{
-        $query_user = "INSERT INTO user (ID,Fname, Email,Phone,Address) VALUES (NULL,'$Fname','$Email','$Phone','$Address')";
-        $query_user_run = mysqli_query($connect,$query_user);
+    } else {
+        // Insert new user
+        $stmt = $connect->prepare("INSERT INTO user (Fname, Email, Phone, Address) VALUES (?, ?, ?, ?)");
+        $stmt->bind_param("ssss", $Fname, $Email, $Phone, $Address);
+        $query_user_run = $stmt->execute();
     }
 
-    if($query_user_run || $check == 1)
-    {
-        if ($check != 1)
-        {
-        $User_ID = mysqli_insert_id($connect);
+    if ($check == 1 || (isset($query_user_run) && $query_user_run)) {
+        if ($check != 1) {
+            $User_ID = $connect->insert_id;
         }
-        $query = "INSERT INTO orders (Order_ID,USER_ID, Total_Price, Time) VALUES (NULL,'$User_ID', '$amount', '$formattedDate')";
-        $query_run = mysqli_query($connect, $query);
+
+        // Insert order
+        $formattedDate = (new DateTime())->format('Y-m-d H:i:s');
+        $stmt = $connect->prepare("INSERT INTO orders (USER_ID, Total_Price, Time) VALUES (?, ?, ?)");
+        $stmt->bind_param("ids", $User_ID, $amount, $formattedDate);
+        $query_run = $stmt->execute();
+
         if ($query_run) {
             $orderID = $connect->insert_id;
+
+            // Insert order items
             foreach ($_SESSION['orderItems'] as $item) {
                 $Id = $item['Id'];
                 $Price_ID = $item['price_Id'];
                 $count = $item['Count'];
-                $query2 = "INSERT INTO order_items (Ord_ID, product_id, price_Id, count) VALUES ('$orderID', '$Id', '$Price_ID','$count')";
-                $query_run2 = mysqli_query($connect, $query2);
+
+                $stmt = $connect->prepare("INSERT INTO order_items (Ord_ID, product_id, price_Id, count) VALUES (?, ?, ?, ?)");
+                $stmt->bind_param("iiii", $orderID, $Id, $Price_ID, $count);
+                $stmt->execute();
             }
+
+            echo json_encode(["success" => true, "message" => "Order processed successfully."]);
+        } else {
+            echo json_encode(["success" => false, "message" => "Failed to create order."]);
+        }
+    } else {
+        echo json_encode(["success" => false, "message" => "Failed to create user."]);
+    }
+} else {
+    echo json_encode(["success" => false, "message" => "Invalid input data."]);
 }
-}
+
 
 
 // function orderCheckOut($Email)
@@ -180,8 +198,6 @@ if (isset($data['paymentId'], $data['email'], $data['name'], $data['address'], $
     $mail->Body = $Email_template;
 
     $mail->send();
-} else {
-    echo " ";
-}
+// }
 ?>
 
